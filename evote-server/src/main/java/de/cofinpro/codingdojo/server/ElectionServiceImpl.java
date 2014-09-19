@@ -13,7 +13,6 @@ import java.util.Collection;
 /**
  * Created by Christian on 19.09.2014.
  */
-@Path("/election")
 public class ElectionServiceImpl implements ElectionService {
 
     final static Election ELECTION = new Election();
