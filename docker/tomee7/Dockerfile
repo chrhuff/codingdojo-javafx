@@ -11,7 +11,7 @@ RUN wget --quiet --no-cookies http://www.gtlib.gatech.edu/pub/apache/tomee/tomee
 
 # Unpack
 RUN tar xzf /tmp/catalina.tar.gz -C /opt
-RUN mv /opt/apache-tomee-${TOMEE_VERSION} /opt/tomcat
+RUN mv /opt/apache-tomee-plus-${TOMEE_VERSION} /opt/tomcat
 RUN rm /tmp/catalina.tar.gz
 
 # Remove unneeded apps
@@ -21,6 +21,7 @@ RUN rm -rf /opt/tomcat/webapps/ROOT
 
 ADD tomcat-users.xml /opt/tomcat/conf/
 ADD context.xml /opt/tomcat/conf/
+ADD mariadb-java-client-1.1.7.jar /opt/tomcat/lib/
 
 ENV CATALINA_HOME /opt/tomcat
 ENV PATH $PATH:$CATALINA_HOME/bin
