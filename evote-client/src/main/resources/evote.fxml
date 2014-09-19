@@ -7,7 +7,7 @@
 
 <VBox xmlns:fx="http://javafx.com/fxml" fx:controller="de.cofinpro.codingdojo.client.RandomController">
     <children>
-        <Button onAction="#onButtonClick" text="Next random" />
-        <Label id="text" fx:id="label" />
+        <Button onAction="#onButtonClick" text="Next random"/>
+        <Label id="text" fx:id="label"/>
     </children>
 </VBox>
