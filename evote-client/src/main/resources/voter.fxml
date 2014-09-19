@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<VBox xmlns:fx="http://javafx.com/fxml" fx:controller="de.cofinpro.codingdojo.client.EvoteController">
+    <children>
+        <Button onAction="#onButtonClick" text="Next random"/>
+        <Label id="text" fx:id="label"/>
+    </children>
+</VBox>

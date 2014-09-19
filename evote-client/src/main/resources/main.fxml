@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<TabPane xmlns:fx="http://javafx.com/fxml">
+    <tabs>
+        <Tab text="Untitled Tab 1">
+            <content>
+                <fx:include fx:id="fooTabPage" source="/voter.fxml"/>
+            </content>
+        </Tab>
+        <Tab text="Untitled Tab 2">
+            <content>
+                <fx:include fx:id="barTabPage" source="/party.fxml"/>
+            </content>
+        </Tab>
+    </tabs>
+</TabPane>
