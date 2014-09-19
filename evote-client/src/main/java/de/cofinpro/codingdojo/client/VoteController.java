@@ -26,10 +26,11 @@ import java.util.Collection;
 import java.util.ResourceBundle;
 
 public class VoteController {
-    @Inject
-    private ElectionService electionService;
+
     @FXML
     private ListView party;
+    @Inject
+    private ElectionService electionService;
 
     @FXML
     public void vote() {
@@ -42,8 +43,7 @@ public class VoteController {
     private Label label;
     @FXML
     private TextField nameField;
-    @Inject
-    private EvoteService evoteService;
+
     @FXML
     private GridPane pane1;
     @FXML

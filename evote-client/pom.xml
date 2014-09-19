@@ -50,6 +50,11 @@
             <artifactId>resteasy-client</artifactId>
             <version>3.0.8.Final</version>
         </dependency>
+        <dependency>
+            <groupId>javax</groupId>
+            <artifactId>javaee-api</artifactId>
+            <version>6.0</version>
+        </dependency>
     </dependencies>
     <build>
         <plugins>

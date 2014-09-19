@@ -2,58 +2,54 @@ package de.cofinpro.codingdojo.server;
 
 import de.cofinpro.codingdojo.server.api.Vote;
 import de.cofinpro.codingdojo.server.api.Voter;
+import de.cofinpro.codingdojo.server.api.VoterService;
 
 import javax.ws.rs.*;
+import java.util.Arrays;
 import java.util.Collection;
 
 /**
  * Created by tahmed on 19.09.2014.
  */
-@Path("voter")
-public class VoterServiceImpl implements de.cofinpro.codingdojo.server.api.VoterService {
+public class VoterServiceImpl implements VoterService {
 
     /**
      * {@inheritDoc}
      */
-    @POST
-    @Path("register")
-    @Consumes("application/json")
-    @Produces("text/plain")
+
     @Override
     public Long register(Voter voter) {
-        return null;
+        return 42l;
     }
 
     /**
      * {@inheritDoc}
      */
-    @GET
-    @Path("{voterId}")
-    @Produces("application/json")
+
     @Override
     public Voter getVoter(@PathParam("voterId")Long voterId) {
-        return null;
+        Voter voter = new Voter();
+        voter.setId(24l);
+        voter.setName("DummyVoter");
+        return voter;
     }
 
     /**
      * {@inheritDoc}
      */
-    @GET
-    @Produces("application/json")
     @Override
     public Collection<Voter> getVoters() {
-        return null;
+        Voter voter = new Voter();
+        voter.setId(24l);
+        voter.setName("DummyVoter");
+        return Arrays.asList(voter);
     }
 
     /**
      * {@inheritDoc}
      */
-    @POST
-    @Path("vote")
-    @Produces("text/plain")
-    @Consumes("application/json")
     @Override
     public Long vote(Vote vote) {
-        return null;
+        return 23l;
     }
 }

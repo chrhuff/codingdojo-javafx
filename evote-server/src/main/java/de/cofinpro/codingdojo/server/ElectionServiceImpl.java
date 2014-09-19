@@ -13,9 +13,10 @@ import java.util.Collection;
 /**
  * Created by Christian on 19.09.2014.
  */
+@Path("/election")
 public class ElectionServiceImpl implements ElectionService {
 
-    final static Election ELECTION = new Election("Bundestagswahl 2017");
+    final static Election ELECTION = new Election();
     final static Collection<Party> PARTIES = new ArrayList<>();
     final static Collection<Vote> VOTES = new ArrayList<>();
 
@@ -35,16 +36,24 @@ public class ElectionServiceImpl implements ElectionService {
         return Arrays.asList(ELECTION);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public Collection<Party> getParties(Long electionId) {
         return PARTIES;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public Integer getVotes(Long electionId) {
         return VOTES.size();
     }
-
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public Integer getVotes(Long electionId, Long partyId) {
         return VOTES.size();

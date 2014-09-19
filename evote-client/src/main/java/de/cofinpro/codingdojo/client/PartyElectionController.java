@@ -17,8 +17,9 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.text.Text;
 
 public class PartyElectionController implements Initializable  {
-    @Inject
-    private ElectionService electionService;
+
+    /* @Inject
+    private ElectionService electionService;*/
     
     @FXML
     private ComboBox<String> electionList;
@@ -40,11 +41,11 @@ public class PartyElectionController implements Initializable  {
 
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
-		List<String> elections = new ArrayList<String>();
+		/* List<String> elections = new ArrayList<String>();
 		for(Election election : electionService.getElections()){
 			elections.add(election.getName());
 		}
-		electionList.setItems(FXCollections.observableArrayList(new ArrayList(elections)));
+		electionList.setItems(FXCollections.observableArrayList(new ArrayList(elections))); */
 	}
 
 
