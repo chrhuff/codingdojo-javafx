@@ -17,6 +17,9 @@ public class Voter {
     private Long id;
     private String name;
 
+    public Voter() {
+    }
+
     public Long getId() {
         return id;
     }
