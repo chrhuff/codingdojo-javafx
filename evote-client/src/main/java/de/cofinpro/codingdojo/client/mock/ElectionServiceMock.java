@@ -23,18 +23,19 @@ public class ElectionServiceMock implements ElectionService {
     }
 
     @Override
-    public Collection<Party> getParties(Election election) {
+    public Collection<Party> getParties(Long electionId) {
         Party o = new Party("Einheitspartei");
         return Collections.singletonList(o);
     }
 
     @Override
-    public Integer getVotes(Election election) {
+    public Integer getVotes(Long electionId) {
         return null;
     }
 
     @Override
-    public Integer getVotes(Election election, Party party) {
+    public Integer getVotes(Long electionId, Long partyId) {
         return null;
     }
+
 }
