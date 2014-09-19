@@ -18,7 +18,7 @@ RUN \
   echo "mysqld_safe &" > /tmp/config && \
   echo "mysqladmin --silent --wait=30 ping || exit 1" >> /tmp/config && \
   echo "mysql -e 'GRANT ALL PRIVILEGES ON *.* TO \"root\"@\"%\";'" >> /tmp/config && \
-  echo "mysql -e 'CREATE DATABASE CODINGDOJO;'" >> /tmp/config && \
+  echo "mysql -e 'CREATE DATABASE codingdojo;'" >> /tmp/config && \
   bash /tmp/config && \
   rm -f /tmp/config
 

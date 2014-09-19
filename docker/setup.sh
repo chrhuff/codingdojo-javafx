@@ -1,3 +1,3 @@
 #!/bin/bash
-docker run -d -p 3306:3306 --name=mariadb dockerfile/mariadb
-docker run -d -p 8080:8080 --name=tomcat --link mariadb:mariadb codingdojo/tomcat8
+docker run -d -p 3306:3306 --name=mariadb codingdojo/mariadb
+docker run -d -p 8080:8080 --name=tomee --link mariadb:mariadb codingdojo/tomee7
