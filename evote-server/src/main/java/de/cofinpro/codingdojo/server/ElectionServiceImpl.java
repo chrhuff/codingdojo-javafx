@@ -16,7 +16,7 @@ import java.util.Collection;
 @Path("/election")
 public class ElectionServiceImpl implements ElectionService {
 
-    final static Election ELECTION = new Election(1, "Bundestagswahl 2017");
+    final static Election ELECTION = new Election(1l, "Bundestagswahl 2017");
     final static Collection<Party> PARTIES = new ArrayList<>();
     final static Collection<Vote> VOTES = new ArrayList<>();
 
@@ -24,7 +24,7 @@ public class ElectionServiceImpl implements ElectionService {
      * {@inheritDoc}
      */
     @Override
-    public Election getElection(Integer electionId) {
+    public Election getElection(Long electionId) {
         return ELECTION;
     }
 

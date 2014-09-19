@@ -2,10 +2,8 @@ package de.cofinpro.codingdojo.server;
 
 import de.cofinpro.codingdojo.server.api.Vote;
 import de.cofinpro.codingdojo.server.api.Voter;
-import de.cofinpro.codingdojo.server.api.VoterService;
 
 import javax.ws.rs.*;
-import javax.ws.rs.core.MediaType;
 import java.util.Collection;
 
 /**
@@ -22,7 +20,7 @@ public class VoterServiceImpl implements de.cofinpro.codingdojo.server.api.Voter
     @Consumes("application/json")
     @Produces("text/plain")
     @Override
-    public Integer register(Voter voter) {
+    public Long register(Voter voter) {
         return null;
     }
 
@@ -33,7 +31,7 @@ public class VoterServiceImpl implements de.cofinpro.codingdojo.server.api.Voter
     @Path("{voterId}")
     @Produces("application/json")
     @Override
-    public Voter getVoter(@PathParam("voterId")Integer voterId) {
+    public Voter getVoter(@PathParam("voterId")Long voterId) {
         return null;
     }
 
@@ -55,7 +53,7 @@ public class VoterServiceImpl implements de.cofinpro.codingdojo.server.api.Voter
     @Produces("text/plain")
     @Consumes("application/json")
     @Override
-    public Integer vote(Vote vote) {
+    public Long vote(Vote vote) {
         return null;
     }
 }
