@@ -3,6 +3,7 @@ package de.cofinpro.codingdojo.client;
 import de.cofinpro.codingdojo.server.api.Election;
 import de.cofinpro.codingdojo.server.api.ElectionService;
 import de.cofinpro.codingdojo.server.api.Party;
+import de.cofinpro.codingdojo.server.api.VoterService;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
@@ -30,7 +31,7 @@ public class VoteController {
     @FXML
     private ListView party;
     @Inject
-    private ElectionService electionService;
+    private VoterService voterService;
 
     @FXML
     public void vote() {
@@ -48,8 +49,6 @@ public class VoteController {
     private GridPane pane1;
     @FXML
     private GridPane pane2;
-
-
     @Inject
     private FXMLLoader fxmlLoader;
 
@@ -57,7 +56,7 @@ public class VoteController {
     public void registerVoter() {
         pane1.setVisible(false);
         pane2.setVisible(true);
-        Collection<Election> elections = electionService.getElections();
+        /*Collection<Election> elections = electionService.getElections();
         election.setItems(FXCollections.observableList(new ArrayList(elections)));
 
         election.getSelectionModel().selectedItemProperty().addListener((selected, oldElection, newElection) -> {
@@ -66,6 +65,6 @@ public class VoteController {
                         electionService.getParties(newElection));
                 party.setItems(list);
             }
-        });
+        });*/
     }
 }

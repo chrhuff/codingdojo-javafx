@@ -7,14 +7,12 @@ import org.jboss.resteasy.client.jaxrs.ResteasyClient;
 import org.jboss.resteasy.client.jaxrs.ResteasyClientBuilder;
 import org.jboss.resteasy.client.jaxrs.ResteasyWebTarget;
 
-import javax.ws.rs.Produces;
+import javax.enterprise.inject.Produces;
 
 public class ProxyProducer {
-
     public static final String ELECTION_URI = "http://192.168.59.103:8080/evote-server/election";
     public static final String PARTY_URI = "http://example.com/base/uri";
     public static final String VOTER_URI = "http://192.168.59.103:8080/evote-server/voter";
-
     @Produces
     public ElectionService produceElectionService() {
         ResteasyClient client = new ResteasyClientBuilder().build();
