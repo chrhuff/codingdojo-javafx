@@ -1,5 +1,6 @@
 package de.cofinpro.codingdojo.server.api;
 
+import javax.ws.rs.Path;
 import java.util.Collection;
 
 /**

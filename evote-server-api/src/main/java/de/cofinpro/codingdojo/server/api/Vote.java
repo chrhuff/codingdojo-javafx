@@ -1,11 +1,18 @@
 package de.cofinpro.codingdojo.server.api;
 
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+
 /**
  * Created by tahmed on 19.09.2014.
  */
+@XmlRootElement(name = "vote")
 public class Vote {
+    @XmlElement(name = "voter")
     private Voter voter;
+    @XmlElement(name = "party")
     private Party party;
+    @XmlElement(name = "election")
     private Election election;
 
     private Vote(){
