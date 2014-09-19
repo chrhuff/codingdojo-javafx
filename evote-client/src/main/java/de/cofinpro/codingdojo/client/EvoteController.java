@@ -1,14 +1,14 @@
 package de.cofinpro.codingdojo.client;
 
-/**
- * Created by fweichand on 19.09.2014.
- */
-
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 
 import javax.inject.Inject;
 
+/**
+ * Main controller. Delegate JavaFX callbacks to separate services.
+ * We can use CDI here :-).
+ */
 public class EvoteController {
     @FXML
     private Label label;

@@ -10,7 +10,8 @@ import javax.enterprise.inject.Produces;
 import javax.inject.Inject;
 
 /**
- * Created by fweichand on 19.09.2014.
+ * This is a hack. We need to combine the JavaFX own injection (@FXML) with weld CDI.
+ * This class creates a custom FXML-Loader which uses weld for injection / selection.
  */
 public class FXMLLoaderProducer {
     @Inject

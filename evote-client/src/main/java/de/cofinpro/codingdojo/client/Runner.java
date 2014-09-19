@@ -7,7 +7,7 @@ import javafx.stage.Stage;
 import org.jboss.weld.environment.se.*;
 
 /**
- * Created by fweichand on 19.09.2014.
+ * Main runner. Boots up Weld and launches the JavaFX app.
  */
 public class Runner extends Application {
     private Weld weld;
