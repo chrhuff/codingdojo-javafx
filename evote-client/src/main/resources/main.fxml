@@ -1,17 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Tab?>
-<?import javafx.scene.control.TabPane?>
-<TabPane xmlns:fx="http://javafx.com/fxml" minWidth="200" maxWidth="500" minHeight="400" maxHeight="500">
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<TabPane xmlns:fx="http://javafx.com/fxml">
     <tabs>
-        <Tab text="Voter" fx:id="voterTab">
+        <Tab text="Voter" fx:id="voterTab" closable="false">
             <content>
-                <fx:include fx:id="voterTabPage" source="/voterRegistration.fxml"/>
+                <fx:include fx:id="fooTabPage" source="/voterRegistration.fxml"/>
             </content>
         </Tab>
-        <Tab text="Party" fx:id="partyTab">
+        <Tab text="Party" fx:id="partyTab" closable="false">
             <content>
-                <fx:include fx:id="partyTabPage" source="/party.fxml"/>
+                <fx:include fx:id="barTabPage" source="/partyRegistration.fxml"/>
             </content>
         </Tab>
     </tabs>
