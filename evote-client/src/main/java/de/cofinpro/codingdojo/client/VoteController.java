@@ -32,6 +32,8 @@ public class VoteController {
     private ListView party;
     @Inject
     private VoterService voterService;
+    @Inject
+    private ElectionService electionService;
 
     @FXML
     public void vote() {
@@ -56,7 +58,7 @@ public class VoteController {
     public void registerVoter() {
         pane1.setVisible(false);
         pane2.setVisible(true);
-        /*Collection<Election> elections = electionService.getElections();
+        Collection<Election> elections = electionService.getElections();
         election.setItems(FXCollections.observableList(new ArrayList(elections)));
 
         election.getSelectionModel().selectedItemProperty().addListener((selected, oldElection, newElection) -> {
@@ -65,6 +67,6 @@ public class VoteController {
                         electionService.getParties(newElection.getId()));
                 party.setItems(list);
             }
-        });*/
+        });
     }
 }
