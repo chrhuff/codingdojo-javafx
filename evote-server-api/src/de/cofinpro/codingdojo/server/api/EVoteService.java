@@ -28,12 +28,40 @@ public interface EVoteService {
      */
     void register(Party party);
 
-
+    /**
+     * @return all elections
+     */
     Collection<Election> getElections();
 
+    /**
+     * @return get all parties
+     */
     Collection<Party> getParties();
 
+    /**
+     * @return get all allowed parties for an election
+     */
+    Collection<Party> getParties(Election election);
+
+    /**
+     * @return get voters
+     */
     Collection<Voter> getVoters();
+
+    /**
+     * Returns the votes for an election
+     * @param election election
+     * @return get the votes for an election
+     */
+    Integer getVotes(Election election);
+
+    /**
+     * Returns the votes for an election
+     * @param election election
+     * @param party party
+     * @return get the votes for an election
+     */
+    Integer getVotes(Election election, Party party);
 
     void vote(Vote vote);
 }
