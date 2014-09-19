@@ -18,13 +18,13 @@ public class ElectionServiceMock implements ElectionService {
 
     @Override
     public Collection<Election> getElections() {
-        Election o = new Election();
+        Election o = new Election(null, "Unabhängiges Bayern");
         return Collections.singletonList(o);
     }
 
     @Override
     public Collection<Party> getParties(Election election) {
-        Party o = new Party();
+        Party o = new Party(null, "Einheitspartei");
         return Collections.singletonList(o);
     }
 
