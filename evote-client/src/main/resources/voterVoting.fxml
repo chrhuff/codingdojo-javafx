@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<GridPane alignment="CENTER" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="de.cofinpro.codingdojo.client.VoteController">
+    <children>
+        <Label fx:id="label" alignment="CENTER" prefHeight="19.0" prefWidth="109.0" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+      <ComboBox fx:id="election" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+    </children>
+   <columnConstraints>
+      <ColumnConstraints />
+      <ColumnConstraints minWidth="10.0" prefWidth="100.0" />
+   </columnConstraints>
+   <rowConstraints>
+      <RowConstraints maxHeight="0.0" minHeight="0.0" prefHeight="0.0" />
+      <RowConstraints maxHeight="19.0" minHeight="19.0" prefHeight="19.0" />
+      <RowConstraints minHeight="10.0" prefHeight="30.0" />
+   </rowConstraints>
+</GridPane>
