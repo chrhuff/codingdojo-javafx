@@ -14,7 +14,7 @@ public class FxMain {
     private FXMLLoader fxmlLoader;
 
     public void start(Stage stage, Parameters parameters) throws IOException {
-        try (InputStream fxml = RandomController.class.getResourceAsStream("/evote.fxml")) {
+        try (InputStream fxml = EvoteController.class.getResourceAsStream("/evote.fxml")) {
             Parent root = fxmlLoader.load(fxml);
             stage.setScene(new Scene(root));
             stage.show();

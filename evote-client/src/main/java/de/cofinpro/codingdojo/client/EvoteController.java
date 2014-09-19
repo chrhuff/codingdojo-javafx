@@ -9,15 +9,15 @@ import javafx.scene.control.Label;
 
 import javax.inject.Inject;
 
-public class RandomController {
+public class EvoteController {
     @FXML
     private Label label;
 
     @Inject
-    private RandomService randomService;
+    private EvoteService evoteService;
 
     @FXML
     public void onButtonClick() {
-        label.setText("Random " + randomService.nextInt());
+        label.setText("Random " + evoteService.nextInt());
     }
 }

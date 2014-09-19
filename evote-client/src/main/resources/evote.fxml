@@ -5,7 +5,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<VBox xmlns:fx="http://javafx.com/fxml" fx:controller="de.cofinpro.codingdojo.client.RandomController">
+<VBox xmlns:fx="http://javafx.com/fxml" fx:controller="de.cofinpro.codingdojo.client.EvoteController">
     <children>
         <Button onAction="#onButtonClick" text="Next random"/>
         <Label id="text" fx:id="label"/>
