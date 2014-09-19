@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.effect.*?>
+<?import java.net.*?>
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+       <GridPane fx:id="registerPartyGrid" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="de.cofinpro.codingdojo.client.PartyRegistrationController">
+          <children>
+          
+      	<Text fx:id="registerPartytarget" GridPane.columnIndex="0" GridPane.columnSpan="2" GridPane.rowIndex="0" />
+      	<Text text="Register Party" GridPane.columnIndex="0" GridPane.columnSpan="2" GridPane.rowIndex="1" />
+       
+          <Label text="Party Name:" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+          <TextField fx:id="partyName" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+          
+          <HBox alignment="bottom_right" spacing="10" GridPane.columnIndex="2" GridPane.rowIndex="2">
+             <children>
+                 <Button onAction="#onRegisterPartyClick" text="Register" />
+             </children>
+      	</HBox>
+      
+          </children>
+         <columnConstraints>
+            <ColumnConstraints />
+            <ColumnConstraints />
+            <ColumnConstraints />
+         </columnConstraints>
+         <rowConstraints>
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+         </rowConstraints>
+         <effect>
+            <Blend />
+         </effect>    
+   	</GridPane> 

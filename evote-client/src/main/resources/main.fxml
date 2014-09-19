@@ -7,14 +7,14 @@
 
 <TabPane xmlns:fx="http://javafx.com/fxml">
     <tabs>
-        <Tab text="Voter" fx:id="voterTab">
+        <Tab text="Voter" fx:id="voterTab" closable="false">
             <content>
                 <fx:include fx:id="fooTabPage" source="/voterRegistration.fxml"/>
             </content>
         </Tab>
-        <Tab text="Party" fx:id="partyTab">
+        <Tab text="Party" fx:id="partyTab" closable="false">
             <content>
-                <fx:include fx:id="barTabPage" source="/party.fxml"/>
+                <fx:include fx:id="barTabPage" source="/partyRegistration.fxml"/>
             </content>
         </Tab>
     </tabs>
