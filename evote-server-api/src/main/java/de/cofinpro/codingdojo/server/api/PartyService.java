@@ -7,6 +7,8 @@ import java.util.Collection;
  * Created by tahmed on 19.09.2014.
  */
 @Path("/party")
+@Consumes(MediaType.APPLICATION_JSON)
+@Produces(MediaType.APPLICATION_JSON)
 public interface PartyService {
 
     /**
@@ -16,7 +18,6 @@ public interface PartyService {
      */
     @POST
     @Path("register")
-    @Consumes("application/json")
     @Produces("text/plain")
     Long register(Party party);
 
@@ -24,24 +25,20 @@ public interface PartyService {
      * @return get party
      */
     @GET
-    @Path("{partyId}")
-    @Produces("application/json")
-    Party getParty(@PathParam("partyId")Long partyId);
+    @Path("/{partyId}")
+    Party getParty(@PathParam("partyId") Long partyId);
 
     /**
      * @return get all parties
      */
     @GET
-    @Produces("application/json")
     Collection<Party> getParties();
 
     /**
      * Party apply for an election
-     * @param partyId
-     * @param electionId
+     * @param party
+     * @param election
      */
-    @POST
-    @Path("/vote")
-    Long applyForElection(Long partyId, Long electionId);
+    Long applyForElection(Party party, Election election);
 
 }
