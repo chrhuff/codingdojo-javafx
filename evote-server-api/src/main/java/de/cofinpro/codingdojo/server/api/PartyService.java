@@ -12,12 +12,12 @@ public interface PartyService {
      *
      * @param party
      */
-    Integer register(Party party);
+    Long register(Party party);
 
     /**
      * @return get party
      */
-    Party getParty(Integer partyId);
+    Party getParty(Long partyId);
 
     /**
      * @return get all parties
@@ -29,6 +29,6 @@ public interface PartyService {
      * @param party
      * @param election
      */
-    Integer applyForElection(Party party, Election election);
+    Long applyForElection(Party party, Election election);
 
 }

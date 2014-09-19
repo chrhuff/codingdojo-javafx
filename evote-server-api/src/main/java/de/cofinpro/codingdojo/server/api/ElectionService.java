@@ -11,7 +11,7 @@ public interface ElectionService {
     /**
      * @return election
      */
-    Election getElection(Integer electionId);
+    Election getElection(Long electionId);
 
     /**
      * @return all elections

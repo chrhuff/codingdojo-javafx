@@ -13,17 +13,17 @@ public interface VoterService {
      *
      * @param voter
      */
-    Integer register(Voter voter);
+    Long register(Voter voter);
 
     /**
      * @return get voter
      */
-    Voter getVoter(Integer voterId);
+    Voter getVoter(Long voterId);
 
     /**
      * @return get voters
      */
     Collection<Voter> getVoters();
 
-    Integer vote(Vote vote);
+    Long vote(Vote vote);
 }
