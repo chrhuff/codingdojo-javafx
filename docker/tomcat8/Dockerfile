@@ -5,12 +5,13 @@ MAINTAINER christian.huff@cofinpro.de
 EXPOSE 8080
 
 ENV TOMCAT_VERSION 8.0.12
-
-RUN wget --quiet --no-cookies http://archive.apache.org/dist/tomcat/tomcat-8/v${TOMCAT_VERSION}/bin/apache-tomcat-${TOMCAT_VERSION}.tar.gz -O /tmp/catalina.tar.gz
+ENV TOMEE_VERSION 1.7.1
+RUN wget --quiet --no-cookies http://www.apache.org/dyn/closer.cgi/tomee/tomee-${TOMEE_VERSION}/apache-tomee-${TOMEE_VERSION}-plus.tar.gz -O /tmp/catalina.tar.gz
+#RUN wget --quiet --no-cookies http://archive.apache.org/dist/tomcat/tomcat-8/v${TOMCAT_VERSION}/bin/apache-tomcat-${TOMCAT_VERSION}.tar.gz -O /tmp/catalina.tar.gz
 
 # Unpack
 RUN tar xzf /tmp/catalina.tar.gz -C /opt
-RUN mv /opt/apache-tomcat-${TOMCAT_VERSION} /opt/tomcat
+RUN mv /opt/apache-tomee-${TOMEE_VERSION} /opt/tomcat
 RUN rm /tmp/catalina.tar.gz
 
 # Remove unneeded apps
