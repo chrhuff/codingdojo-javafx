@@ -4,6 +4,10 @@ import de.cofinpro.codingdojo.server.api.Vote;
 import de.cofinpro.codingdojo.server.api.Voter;
 import de.cofinpro.codingdojo.server.api.VoterService;
 
+import javax.inject.Inject;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 import javax.ws.rs.*;
 import java.util.Arrays;
 import java.util.Collection;
@@ -13,13 +17,17 @@ import java.util.Collection;
  */
 public class VoterServiceImpl implements VoterService {
 
+    @PersistenceContext(unitName = "codingdojo")
+    private EntityManager entityManager;
+
     /**
      * {@inheritDoc}
      */
 
     @Override
     public Long register(Voter voter) {
-        return 42l;
+        entityManager.persist(voter);
+        return voter.getId();
     }
 
     /**
@@ -28,9 +36,7 @@ public class VoterServiceImpl implements VoterService {
 
     @Override
     public Voter getVoter(@PathParam("voterId")Long voterId) {
-        Voter voter = new Voter();
-        voter.setId(24l);
-        voter.setName("DummyVoter");
+        Voter voter = entityManager.find(Voter.class, voterId);
         return voter;
     }
 
@@ -39,10 +45,8 @@ public class VoterServiceImpl implements VoterService {
      */
     @Override
     public Collection<Voter> getVoters() {
-        Voter voter = new Voter();
-        voter.setId(24l);
-        voter.setName("DummyVoter");
-        return Arrays.asList(voter);
+        Query query = entityManager.createQuery("SELECT v from Voter as v");
+        return query.getResultList();
     }
 
     /**
@@ -50,6 +54,7 @@ public class VoterServiceImpl implements VoterService {
      */
     @Override
     public Long vote(Vote vote) {
-        return 23l;
+        entityManager.persist(vote);
+        return vote.getId();
     }
 }
