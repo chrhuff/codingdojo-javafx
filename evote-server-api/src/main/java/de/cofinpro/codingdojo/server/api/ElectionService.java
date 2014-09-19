@@ -1,32 +1,20 @@
 package de.cofinpro.codingdojo.server.api;
 
+import javax.ws.rs.GET;
+import javax.ws.rs.Path;
+import javax.ws.rs.Produces;
 import java.util.Collection;
 
 /**
  * Created by tahmed on 19.09.2014.
  */
-public interface EVoteService {
+@Path("/election")
+public interface ElectionService {
 
     /**
-     * Party apply for an election
-     * @param party
-     * @param election
+     * @return election
      */
-    void applyForElection(Party party, Election election);
-
-    /**
-     * Register a voter for elections.
-     *
-     * @param voter
-     */
-    void register(Voter voter);
-
-    /**
-     * Register a new party for the elections
-     *
-     * @param party
-     */
-    void register(Party party);
+    Election getElection(Integer electionId);
 
     /**
      * @return all elections
@@ -34,25 +22,16 @@ public interface EVoteService {
     Collection<Election> getElections();
 
     /**
-     * @return get all parties
-     */
-    Collection<Party> getParties();
-
-    /**
      * @return get all allowed parties for an election
      */
     Collection<Party> getParties(Election election);
-
-    /**
-     * @return get voters
-     */
-    Collection<Voter> getVoters();
 
     /**
      * Returns the votes for an election
      * @param election election
      * @return get the votes for an election
      */
+    @GET
     Integer getVotes(Election election);
 
     /**
@@ -61,7 +40,7 @@ public interface EVoteService {
      * @param party party
      * @return get the votes for an election
      */
+    @Produces("text/plain")
     Integer getVotes(Election election, Party party);
 
-    void vote(Vote vote);
 }
