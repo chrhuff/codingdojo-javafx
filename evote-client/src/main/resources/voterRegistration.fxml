@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<GridPane fx:id="voterTab" alignment="CENTER" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="de.cofinpro.codingdojo.client.VoteRegistrationController">
+    <children>
+        <Label fx:id="label" alignment="CENTER" text="Name:" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+        <TextField fx:id="nameField" alignment="CENTER_LEFT" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+        <Button alignment="CENTER" onAction="#registerVoter" text="Register!" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+        <Label fx:id="feedbackLabel" alignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+    </children>
+   <columnConstraints>
+      <ColumnConstraints maxWidth="65.0" minWidth="10.0" percentWidth="10.0" prefWidth="65.0" />
+      <ColumnConstraints maxWidth="144.0" minWidth="105.0" percentWidth="80.0" prefWidth="105.0" />
+      <ColumnConstraints maxWidth="77.0" minWidth="10.0" percentWidth="10.0" prefWidth="77.0" />
+   </columnConstraints>
+</GridPane>
