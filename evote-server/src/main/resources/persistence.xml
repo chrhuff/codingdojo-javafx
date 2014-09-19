@@ -22,57 +22,14 @@
              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
              xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd">
 
-    <persistence-unit name="codingdojo" transaction-type="RESOURCE_LOCAL">
-
-        <provider>org.hibernate.ejb.HibernatePersistence</provider>
-
+    <persistence-unit name="codingdojo">
         <class>de.cofinpro.codingdojo.server.api.Election</class>
         <class>de.cofinpro.codingdojo.server.api.Party</class>
         <class>de.cofinpro.codingdojo.server.api.Vote</class>
         <class>de.cofinpro.codingdojo.server.api.Voter</class>
 
         <properties>
-
-            <!-- =============================== -->
-            <!-- ===========DATABASE============ -->
-            <!-- =============================== -->
-
-            <!-- MySQL -->
-            <property name="hibernate.connection.datasource" value="jdbc/CodingDojoDb" />
-            <property name="hibernate.connection.driver_class" value="com.mysql.jdbc.Driver" />
-            <property name="hibernate.dialect" value="org.hibernate.dialect.MySQL5InnoDBDialect"/>
-
-            <!-- MariaDB is fully compatible with MySQL, there isn't a custom dialect-->
-            <!-- <property name="hibernate.connection.url" value="jdbc:mysql://192.168.0.103:3366/danielme" />
-            <property name="hibernate.connection.driver_class" value="com.mysql.jdbc.Driver" />
-            <property name="hibernate.dialect" value="org.hibernate.dialect.MySQL5InnoDBDialect "/>-->
-
-            <!-- PostgreSQL -->
-            <!-- <property name="hibernate.connection.url" value="jdbc:postgresql://192.168.2.102:5432/danielme" />
-            <property name="hibernate.connection.driver_class" value="org.postgresql.Driver" />
-            <property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQLDialect"/>-->
-
-            <!-- SQL SERVER 2012-->
-            <!-- <property name="hibernate.connection.url" value="jdbc:sqlserver://192.168.2.102:1433;databaseName=danielme" />--><!-- http://msdn.microsoft.com/en-us/library/ms378428.aspx -->
-            <!-- <property name="hibernate.connection.driver_class" value="com.microsoft.sqlserver.jdbc.SQLServerDriver" />
-                 <property name="hibernate.dialect" value="org.hibernate.dialect.SQLServer2008Dialect"/>-->
-
-
-            <!-- ORACLE -->
-            <!-- <property name="hibernate.connection.url" value="jdbc:oracle:thin:@192.168.2.102:1521:XE" />
-            <property name="hibernate.connection.driver_class" value="oracle.jdbc.driver.OracleDriver" />
-            <property name="hibernate.dialect" value="org.hibernate.dialect.Oracle10gDialect"/>--> <!-- compatible with 10g and 11g -->
-
-
-            <!-- =============================== -->
-            <!-- ===========OTHER PROPS========== -->
-            <!-- =============================== -->
-            <!-- automatically updates the schema, NOT RECOMENDED IN A PRODUCTION ENVIROMENT. Check user's grant permissions -->
-            <property name="hibernate.hbm2ddl.auto" value="create"/>
-            <property name="hibernate.show_sql" value="true"/>
-            <!-- Enables autocommit for JDBC pooled connections (it is not recommended) -->
-            <property name="hibernate.connection.autocommit" value="false" />
-
+            <property name="openjpa.jdbc.SynchronizeMappings" value="buildSchema(ForeignKeys=true)"/>
         </properties>
 
     </persistence-unit>

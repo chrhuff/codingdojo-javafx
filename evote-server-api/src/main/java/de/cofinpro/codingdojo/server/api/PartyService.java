@@ -1,10 +1,15 @@
 package de.cofinpro.codingdojo.server.api;
 
+import javax.ws.rs.*;
+import javax.ws.rs.core.MediaType;
 import java.util.Collection;
 
 /**
  * Created by tahmed on 19.09.2014.
  */
+@Path("/party")
+@Consumes(MediaType.APPLICATION_JSON)
+@Produces(MediaType.APPLICATION_JSON)
 public interface PartyService {
 
     /**
@@ -12,16 +17,20 @@ public interface PartyService {
      *
      * @param party
      */
+    @PUT
     Long register(Party party);
 
     /**
      * @return get party
      */
-    Party getParty(Long partyId);
+    @GET
+    @Path("/{partyId}")
+    Party getParty(@PathParam("partyId") Long partyId);
 
     /**
      * @return get all parties
      */
+    @GET
     Collection<Party> getParties();
 
     /**
@@ -29,6 +38,8 @@ public interface PartyService {
      * @param party
      * @param election
      */
+    @PUT
+    @Path("/apply")
     Long applyForElection(Party party, Election election);
 
 }

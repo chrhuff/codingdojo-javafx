@@ -1,12 +1,15 @@
 package de.cofinpro.codingdojo.server.api;
 
 import javax.ws.rs.*;
+import javax.ws.rs.core.MediaType;
 import java.util.Collection;
 
 /**
  * Created by tahmed on 19.09.2014.
  */
 @Path("/voter")
+@Consumes(MediaType.APPLICATION_JSON)
+@Produces(MediaType.APPLICATION_JSON)
 public interface VoterService {
 
     /**
@@ -16,8 +19,6 @@ public interface VoterService {
      */
     @POST
     @Path("register")
-    @Consumes("application/json")
-    @Produces("text/plain")
     Long register(Voter voter);
 
     /**
@@ -25,19 +26,15 @@ public interface VoterService {
      */
     @GET
     @Path("{voterId}")
-    @Produces("application/json")
     Voter getVoter(Long voterId);
 
     /**
      * @return get voters
      */
     @GET
-    @Produces("application/json")
     Collection<Voter> getVoters();
 
     @POST
     @Path("vote")
-    @Produces("text/plain")
-    @Consumes("application/json")
     Long vote(Vote vote);
 }
