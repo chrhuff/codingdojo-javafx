@@ -8,17 +8,24 @@ import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
+import javafx.scene.control.TextField;
+import javafx.scene.layout.GridPane;
+import javafx.scene.layout.Region;
 
 import javax.inject.Inject;
+import java.io.IOException;
+import java.io.InputStream;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.ResourceBundle;
 
-public class VoteController implements Initializable {
+public class VoteController {
     @Inject
     private ElectionService electionService;
     @FXML
@@ -26,14 +33,30 @@ public class VoteController implements Initializable {
 
     @FXML
     public void vote() {
-
     }
 
     @FXML
     private ComboBox<Election> election;
 
-    @Override
-    public void initialize(URL location, ResourceBundle resources) {
+    @FXML
+    private Label label;
+    @FXML
+    private TextField nameField;
+    @Inject
+    private EvoteService evoteService;
+    @FXML
+    private GridPane pane1;
+    @FXML
+    private GridPane pane2;
+
+
+    @Inject
+    private FXMLLoader fxmlLoader;
+
+    @FXML
+    public void registerVoter() {
+        pane1.setVisible(false);
+        pane2.setVisible(true);
         Collection<Election> elections = electionService.getElections();
         election.setItems(FXCollections.observableList(new ArrayList(elections)));
 
@@ -44,6 +67,5 @@ public class VoteController implements Initializable {
                 party.setItems(list);
             }
         });
-
     }
 }

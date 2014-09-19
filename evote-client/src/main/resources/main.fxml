@@ -1,11 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
-
-<TabPane xmlns:fx="http://javafx.com/fxml">
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<TabPane xmlns:fx="http://javafx.com/fxml" minHeight="600" minWidth="200" maxHeight="600" maxWidth="400">
     <tabs>
         <Tab text="Voter" fx:id="voterTab" closable="false">
             <content>
