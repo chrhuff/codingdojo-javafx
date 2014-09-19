@@ -62,7 +62,7 @@ public class VoteController {
         election.getSelectionModel().selectedItemProperty().addListener((selected, oldElection, newElection) -> {
             if (newElection != null) {
                 ObservableList<Party> list = FXCollections.observableArrayList(
-                        electionService.getParties(newElection));
+                        electionService.getParties(newElection.getId()));
                 party.setItems(list);
             }
         });*/

@@ -13,7 +13,6 @@ import java.util.Collection;
 /**
  * Created by Christian on 19.09.2014.
  */
-@Path("/election")
 public class ElectionServiceImpl implements ElectionService {
 
     final static Election ELECTION = new Election();
@@ -40,7 +39,7 @@ public class ElectionServiceImpl implements ElectionService {
      * {@inheritDoc}
      */
     @Override
-    public Collection<Party> getParties(Election election) {
+    public Collection<Party> getParties(Long electionId) {
         return PARTIES;
     }
 
@@ -48,14 +47,14 @@ public class ElectionServiceImpl implements ElectionService {
      * {@inheritDoc}
      */
     @Override
-    public Integer getVotes(Election election) {
+    public Integer getVotes(Long electionId) {
         return VOTES.size();
     }
     /**
      * {@inheritDoc}
      */
     @Override
-    public Integer getVotes(Election election, Party party) {
+    public Integer getVotes(Long electionId, Long partyId) {
         return VOTES.size();
     }
 }
