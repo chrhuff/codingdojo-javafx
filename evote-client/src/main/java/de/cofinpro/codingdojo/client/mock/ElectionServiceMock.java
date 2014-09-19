@@ -12,19 +12,19 @@ import java.util.Collections;
  */
 public class ElectionServiceMock implements ElectionService {
     @Override
-    public Election getElection(Integer electionId) {
+    public Election getElection(Long electionId) {
         return null;
     }
 
     @Override
     public Collection<Election> getElections() {
-        Election o = new Election(null, "Unabhängiges Bayern");
+        Election o = new Election("Unabhängiges Bayern");
         return Collections.singletonList(o);
     }
 
     @Override
     public Collection<Party> getParties(Election election) {
-        Party o = new Party(null, "Einheitspartei");
+        Party o = new Party("Einheitspartei");
         return Collections.singletonList(o);
     }
 
