@@ -18,6 +18,9 @@ public class Party {
     private Long id;
     private String name;
 
+    public Party() {
+    }
+
     public Party(String name)
     {
         this.name = name;

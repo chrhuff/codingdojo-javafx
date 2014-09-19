@@ -25,7 +25,7 @@ public class Vote {
     @XmlElement(name = "election")
     private Election election;
 
-    private Vote(){
+    public Vote(){
     }
 
     public Vote(Voter voter, Party party, Election election)
@@ -35,18 +35,6 @@ public class Vote {
         this.election = election;
     }
 
-    public Voter getVoter() {
-        return voter;
-    }
-
-    public Party getParty() {
-        return party;
-    }
-
-    public Election getElection() {
-        return election;
-    }
-
     public Long getId() {
         return id;
     }
@@ -54,4 +42,29 @@ public class Vote {
     public void setId(Long id) {
         this.id = id;
     }
+
+    public Voter getVoter() {
+        return voter;
+    }
+
+    public void setVoter(Voter voter) {
+        this.voter = voter;
+    }
+
+    public Party getParty() {
+        return party;
+    }
+
+    public void setParty(Party party) {
+        this.party = party;
+    }
+
+    public Election getElection() {
+        return election;
+    }
+
+    public void setElection(Election election) {
+        this.election = election;
+    }
+
 }
