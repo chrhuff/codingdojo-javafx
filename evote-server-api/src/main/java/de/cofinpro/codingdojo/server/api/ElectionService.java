@@ -1,14 +1,11 @@
 package de.cofinpro.codingdojo.server.api;
 
-import javax.ws.rs.GET;
-import javax.ws.rs.Path;
-import javax.ws.rs.Produces;
+import javax.ws.rs.*;
 import java.util.Collection;
 
 /**
  * Created by tahmed on 19.09.2014.
  */
-@Path("/election")
 public interface ElectionService {
 
     /**
@@ -31,7 +28,6 @@ public interface ElectionService {
      * @param election election
      * @return get the votes for an election
      */
-    @GET
     Integer getVotes(Election election);
 
     /**
@@ -40,7 +36,6 @@ public interface ElectionService {
      * @param party party
      * @return get the votes for an election
      */
-    @Produces("text/plain")
     Integer getVotes(Election election, Party party);
 
 }
