@@ -8,9 +8,7 @@ import java.util.Collection;
  */
 public interface ElectionService {
 
-    /**
-     * @return election
-     */
+    @GET
     Election getElection(Long electionId);
 
     /**

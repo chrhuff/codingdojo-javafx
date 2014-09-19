@@ -18,6 +18,9 @@ public class Election {
     private Long id;
     private String name;
 
+    public Election() {
+    }
+
     public Election(String name)
     {
         this.name = name;

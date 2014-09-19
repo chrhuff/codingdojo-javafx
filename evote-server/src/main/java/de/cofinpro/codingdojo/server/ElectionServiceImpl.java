@@ -16,7 +16,7 @@ import java.util.Collection;
 @Path("/election")
 public class ElectionServiceImpl implements ElectionService {
 
-    final static Election ELECTION = new Election(1l, "Bundestagswahl 2017");
+    final static Election ELECTION = new Election();
     final static Collection<Party> PARTIES = new ArrayList<>();
     final static Collection<Vote> VOTES = new ArrayList<>();
 
