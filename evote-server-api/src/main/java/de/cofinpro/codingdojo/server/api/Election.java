@@ -18,9 +18,8 @@ public class Election {
     private Long id;
     private String name;
 
-    public Election(Long id, String name)
+    public Election(String name)
     {
-        this.id = id;
         this.name = name;
     }
 
