@@ -3,6 +3,7 @@ package de.cofinpro.codingdojo.server.api;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import java.util.Collection;
+import java.util.List;
 
 /**
  * Created by tahmed on 19.09.2014.
@@ -18,23 +19,23 @@ public interface VoterService {
      * @param voter
      */
     @POST
-    @Path("register")
+    @Path("/register")
     Long register(Voter voter);
 
     /**
      * @return get voter
      */
     @GET
-    @Path("{voterId}")
+    @Path("/{voterId}")
     Voter getVoter(Long voterId);
 
     /**
      * @return get voters
      */
     @GET
-    Collection<Voter> getVoters();
+    List<Voter> getVoters();
 
     @POST
-    @Path("vote")
+    @Path("/vote")
     Long vote(Vote vote);
 }

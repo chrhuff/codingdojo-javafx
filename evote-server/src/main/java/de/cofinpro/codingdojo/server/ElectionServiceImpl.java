@@ -5,42 +5,43 @@ import de.cofinpro.codingdojo.server.api.ElectionService;
 import de.cofinpro.codingdojo.server.api.Party;
 import de.cofinpro.codingdojo.server.api.Vote;
 
-import javax.ws.rs.Path;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+import javax.persistence.TypedQuery;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collection;
+import java.util.List;
 
 /**
  * Created by Christian on 19.09.2014.
  */
 public class ElectionServiceImpl implements ElectionService {
 
-    final static Election ELECTION = new Election();
-    final static Collection<Party> PARTIES = new ArrayList<>();
-    final static Collection<Vote> VOTES = new ArrayList<>();
+    @PersistenceContext(unitName = "codingdojo")
+    private EntityManager entityManager;
 
     /**
      * {@inheritDoc}
      */
     @Override
     public Election getElection(Long electionId) {
-        return ELECTION;
+        return entityManager.find(Election.class, electionId);
     }
 
     /**
      * {@inheritDoc}
      */
     @Override
-    public Collection<Election> getElections() {
-        return Arrays.asList(ELECTION);
+    public List<Election> getElections() {
+        return entityManager.createNamedQuery("Election.findAll", Election.class).getResultList();
     }
 
     /**
      * {@inheritDoc}
      */
     @Override
-    public Collection<Party> getParties(Long electionId) {
-        return PARTIES;
+    public List<Party> getParties(Long electionId) {
+        return entityManager.createNamedQuery("Party.findAll", Party.class).getResultList();
     }
 
     /**
@@ -48,13 +49,13 @@ public class ElectionServiceImpl implements ElectionService {
      */
     @Override
     public Integer getVotes(Long electionId) {
-        return VOTES.size();
+        return 42;
     }
     /**
      * {@inheritDoc}
      */
     @Override
     public Integer getVotes(Long electionId, Long partyId) {
-        return VOTES.size();
+       return 42;
     }
 }

@@ -4,13 +4,11 @@ import de.cofinpro.codingdojo.server.api.Vote;
 import de.cofinpro.codingdojo.server.api.Voter;
 import de.cofinpro.codingdojo.server.api.VoterService;
 
-import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
-import javax.ws.rs.*;
-import java.util.Arrays;
-import java.util.Collection;
+import javax.ws.rs.PathParam;
+import java.util.List;
 
 /**
  * Created by tahmed on 19.09.2014.
@@ -44,7 +42,7 @@ public class VoterServiceImpl implements VoterService {
      * {@inheritDoc}
      */
     @Override
-    public Collection<Voter> getVoters() {
+    public List<Voter> getVoters() {
         Query query = entityManager.createQuery("SELECT v from Voter as v");
         return query.getResultList();
     }
