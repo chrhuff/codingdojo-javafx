@@ -18,9 +18,8 @@ public class Party {
     private Long id;
     private String name;
 
-    public Party(Long id, String name)
+    public Party(String name)
     {
-        this.id = id;
         this.name = name;
     }
 
