@@ -4,6 +4,8 @@ import de.cofinpro.codingdojo.client.javafx.ElectionListCell;
 import de.cofinpro.codingdojo.server.api.Election;
 import de.cofinpro.codingdojo.server.api.ElectionService;
 import de.cofinpro.codingdojo.server.api.Party;
+import javafx.beans.*;
+import javafx.beans.Observable;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
@@ -53,6 +55,7 @@ public class ResultController implements Initializable {
                 List<Party> parties = electionService.getParties(selectedElection.getId());
                 updatePieChart(selectedElection, parties);
                 updateTotal(selectedElection);
+                updateLabel();
             }
         });
         electionComboBox.setItems(FXCollections.observableArrayList(electionList));
@@ -64,7 +67,12 @@ public class ResultController implements Initializable {
         });
         electionComboBox.setButtonCell(new ElectionListCell());
         chart.setData(pieChartData);
+        chart.setLabelsVisible(false);
         results.setVisible(false);
+    }
+
+    private void updateLabel() {
+        chart.setLabelsVisible(false);
     }
 
     private void updateTotal(Election election) {
