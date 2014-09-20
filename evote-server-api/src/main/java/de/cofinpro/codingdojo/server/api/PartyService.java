@@ -38,11 +38,11 @@ public interface PartyService {
     /**
      * Party apply for an election
      *
-     * @param party
-     * @param election
+     * @param electionId
+     * @param partyId
      */
-    @PUT
-    @Path("/apply")
+    @POST
+    @Path("/apply/{electionId}/{partyId}")
     @Produces(MediaType.TEXT_PLAIN)
-    Long applyForElection(Party party, Election election);
+    Long applyForElection(@PathParam("electionId") Long electionId, @PathParam("partyId") Long partyId);
 }

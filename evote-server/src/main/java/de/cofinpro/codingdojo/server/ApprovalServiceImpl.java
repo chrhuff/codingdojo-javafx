@@ -3,10 +3,15 @@ package de.cofinpro.codingdojo.server;
 import java.util.List;
 
 import javax.ejb.EJB;
+import javax.ejb.Lock;
+import javax.ejb.LockType;
+import javax.ejb.Singleton;
 import javax.inject.Inject;
 
 import de.cofinpro.codingdojo.server.api.*;
 
+@Singleton
+@Lock(LockType.WRITE)
 public class ApprovalServiceImpl implements ApprovalService {
 	
 	@EJB
