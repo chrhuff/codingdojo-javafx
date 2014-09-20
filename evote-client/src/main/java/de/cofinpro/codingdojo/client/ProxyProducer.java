@@ -10,7 +10,7 @@ import org.jboss.resteasy.client.jaxrs.ResteasyWebTarget;
 import javax.enterprise.inject.Produces;
 
 public class ProxyProducer {
-    public static final String URI = "http://192.168.56.101:8080/evote-server";
+    public static final String URI = "http://"+System.getProperty("evote.server.ip", "192.168.56.101")+":8080/evote-server";
     @Produces
     public ElectionService produceElectionService() {
         ResteasyClient client = new ResteasyClientBuilder().build();
