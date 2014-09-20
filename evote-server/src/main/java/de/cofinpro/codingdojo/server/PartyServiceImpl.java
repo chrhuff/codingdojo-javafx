@@ -19,7 +19,8 @@ import de.cofinpro.codingdojo.server.api.STATUS;
 @Lock(LockType.WRITE)
 public class PartyServiceImpl implements PartyService{
 
-	@EJB PartyDao partyDao;
+	@EJB 
+	PartyDao partyDao;
 	
 	@Override
 	public Long register(Party party) {
