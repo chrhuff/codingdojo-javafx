@@ -49,7 +49,7 @@ public class ElectionServiceImpl implements ElectionService {
      */
     @Override
     public Integer getVotes(Long electionId) {
-        return 42;
+        return entityManager.createNamedQuery("Vote.countVotes", Integer.class).getSingleResult().intValue();
     }
     /**
      * {@inheritDoc}

@@ -8,8 +8,9 @@ import javax.xml.bind.annotation.XmlRootElement;
  */
 @Entity
 @XmlRootElement(name = "election")
-@NamedQueries({@NamedQuery(name = "Election.findAll", query = "SELECT e FROM Election e"
-)})
+@NamedQueries({
+        @NamedQuery(name = "Election.findAll", query = "SELECT e FROM Election e")
+})
 public class Election {
 
     @Id
