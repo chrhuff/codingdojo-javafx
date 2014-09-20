@@ -14,5 +14,10 @@
                 <fx:include fx:id="barTabPage" source="/partyRegistration.fxml"/>
             </content>
         </Tab>
+        <Tab text="Results" fx:id="resultTab" closable="false">
+            <content>
+                <fx:include fx:id="barTabPage" source="/results.fxml"/>
+            </content>
+        </Tab>
     </tabs>
 </TabPane>

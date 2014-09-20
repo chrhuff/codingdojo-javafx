@@ -34,11 +34,11 @@ public class PartyElectionController implements Initializable  {
 
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
-		/* List<String> elections = new ArrayList<String>();
+		/* List<String> electionComboBox = new ArrayList<String>();
 		for(Election election : electionService.getElections()){
-			elections.add(election.getName());
+			electionComboBox.add(election.getName());
 		}
-		electionList.setItems(FXCollections.observableArrayList(new ArrayList(elections))); */
+		electionList.setItems(FXCollections.observableArrayList(new ArrayList(electionComboBox))); */
 	}
 
 
