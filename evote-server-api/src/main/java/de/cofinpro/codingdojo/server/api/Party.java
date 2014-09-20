@@ -8,8 +8,10 @@ import javax.xml.bind.annotation.XmlRootElement;
  */
 @Entity
 @XmlRootElement(name = "party")
-@NamedQueries({@NamedQuery(name = "Party.findAll", query = "SELECT p FROM Party p"
-)})
+@NamedQueries({
+        @NamedQuery(name = "Party.findAll", query = "SELECT p FROM Party p"),
+        @NamedQuery(name = "Party.findByElectionApprovalStatus", query = "SELECT p FROM Party p WHERE EXISTS (SELECT a FROM Approval a WHERE a.party = p AND a.election = :election AND a.status = :approvalStatus)")
+})
 public class Party {
 
     @Id

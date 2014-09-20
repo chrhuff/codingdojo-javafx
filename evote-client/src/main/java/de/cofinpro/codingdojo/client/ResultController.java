@@ -46,7 +46,7 @@ public class ResultController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        Collection<Election> electionList = Collections.emptyList();//electionService.getElections();
+        Collection<Election> electionList = electionService.getElections();
 
         electionComboBox.setOnAction(new EventHandler<ActionEvent>() {
             @Override
@@ -81,6 +81,7 @@ public class ResultController implements Initializable {
     }
 
     private void updatePieChart(Election election, List<Party> parties) {
+        pieChartData.clear();
         for (Party party : parties) {
             Integer votes = electionService.getVotes(election.getId(), party.getId());
             PieChart.Data data = new PieChart.Data(party.getName(), votes);
