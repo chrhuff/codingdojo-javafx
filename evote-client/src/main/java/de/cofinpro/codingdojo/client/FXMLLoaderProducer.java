@@ -1,13 +1,11 @@
 package de.cofinpro.codingdojo.client;
 
-import java.nio.charset.*;
-
 import javafx.fxml.FXMLLoader;
-import javafx.util.Callback;
 
 import javax.enterprise.inject.Instance;
 import javax.enterprise.inject.Produces;
 import javax.inject.Inject;
+import java.nio.charset.StandardCharsets;
 
 /**
  * This is a hack. We need to combine the JavaFX own injection (@FXML) with weld CDI.

@@ -3,13 +3,9 @@ package de.cofinpro.codingdojo.server;
 import de.cofinpro.codingdojo.server.api.Election;
 import de.cofinpro.codingdojo.server.api.ElectionService;
 import de.cofinpro.codingdojo.server.api.Party;
-import de.cofinpro.codingdojo.server.api.Vote;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import javax.persistence.TypedQuery;
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 /**

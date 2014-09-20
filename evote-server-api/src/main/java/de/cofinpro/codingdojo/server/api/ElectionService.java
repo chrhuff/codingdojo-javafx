@@ -2,7 +2,6 @@ package de.cofinpro.codingdojo.server.api;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
-import java.util.Collection;
 import java.util.List;
 
 /**

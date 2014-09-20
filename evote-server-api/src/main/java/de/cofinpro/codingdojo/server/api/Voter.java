@@ -5,13 +5,14 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.xml.bind.annotation.XmlRootElement;
+import java.io.Serializable;
 
 /**
  * Created by tahmed on 19.09.2014.
  */
 @Entity
 @XmlRootElement(name = "voter")
-public class Voter {
+public class Voter implements Serializable {
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
     private Long id;

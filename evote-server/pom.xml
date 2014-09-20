@@ -38,6 +38,7 @@
             <version>6.0-6</version>
             <scope>provided</scope>
         </dependency>
+
         <!-- openejb (with hibernate) container for running tests -->
         <dependency>
             <groupId>org.apache.openejb</groupId>

@@ -1,25 +1,24 @@
 package de.cofinpro.codingdojo.client;
 
-import java.io.IOException;
-import java.net.URL;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.ResourceBundle;
-
-import javax.inject.Inject;
-
 import de.cofinpro.codingdojo.server.api.Election;
 import de.cofinpro.codingdojo.server.api.ElectionService;
 import de.cofinpro.codingdojo.server.api.Party;
 import de.cofinpro.codingdojo.server.api.PartyService;
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.control.*;
+import javafx.scene.control.ComboBox;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.GridPane;
-import javafx.scene.text.*;
+import javafx.scene.text.Text;
+
+import javax.inject.Inject;
+import java.io.IOException;
+import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.ResourceBundle;
 
 /**
  * Main controller. Delegate JavaFX callbacks to separate services.
