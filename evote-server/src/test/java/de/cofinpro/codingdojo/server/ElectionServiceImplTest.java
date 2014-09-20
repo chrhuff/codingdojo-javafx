@@ -67,7 +67,6 @@ public class ElectionServiceImplTest {
             assertTrue(em.createNamedQuery("Vote.countVotes", Long.class).setParameter("election", election).setParameter("party", csu).getSingleResult().longValue() == 2l);
             assertTrue(em.createNamedQuery("Vote.countVotes", Long.class).setParameter("election", election).setParameter("party", pbc).getSingleResult().longValue() == 0l);
 
-
         } catch (RuntimeException e) {
             if (trx != null && trx.isActive()) {
                 trx.rollback();
