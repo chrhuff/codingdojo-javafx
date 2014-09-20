@@ -1,9 +1,11 @@
 package de.cofinpro.codingdojo.server;
 
-import de.cofinpro.codingdojo.server.api.Election;
-import de.cofinpro.codingdojo.server.api.ElectionService;
-import de.cofinpro.codingdojo.server.api.Party;
+import de.cofinpro.codingdojo.server.api.*;
 
+import javax.ejb.EJB;
+import javax.ejb.Lock;
+import javax.ejb.LockType;
+import javax.ejb.Singleton;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import java.util.List;
