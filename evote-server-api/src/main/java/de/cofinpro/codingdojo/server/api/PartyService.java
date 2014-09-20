@@ -41,6 +41,6 @@ public interface PartyService {
      */
     @PUT
     @Path("/apply")
-    Long applyForElection(Party party, Election election);
+    void applyForElection(Party party, Election election);
 
 }
