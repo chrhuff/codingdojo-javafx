@@ -42,10 +42,10 @@ public class VoteController {
     @Inject
     private FXMLLoader fxmlLoader;
 
+    private Election selectedElection;
+
     @FXML
     public void registerVoter() {
-        pane1.setVisible(false);
-        pane2.setVisible(true);
 
         Voter voter = new Voter();
         voter.setName(nameField.getText());
@@ -59,7 +59,14 @@ public class VoteController {
                 ObservableList<Party> list = FXCollections.observableArrayList(
                         electionService.getParties(newElection.getId()));
                 party.setItems(list);
+                selectedElection = newElection;
             }
         });
+        pane1.setVisible(false);
+        pane2.setVisible(true);
+    }
+
+    @FXML
+    public void castVote() {
     }
 }

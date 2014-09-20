@@ -37,6 +37,7 @@ public interface PartyService {
 
     /**
      * Party apply for an election
+     *
      * @param party
      * @param election
      */
@@ -44,5 +45,4 @@ public interface PartyService {
     @Path("/apply")
     @Produces(MediaType.TEXT_PLAIN)
     Long applyForElection(Party party, Election election);
-
 }

@@ -9,9 +9,9 @@
     <artifactId>evote</artifactId>
     <packaging>pom</packaging>
     <modules>
+        <module>evote-server-api</module>
         <module>evote-server</module>
         <module>evote-client</module>
-        <module>evote-server-api</module>
     </modules>
     <build>
         <plugins>

@@ -11,6 +11,9 @@ import javax.xml.bind.annotation.XmlRootElement;
  * Created by tahmed on 19.09.2014.
  */
 @Entity
+@NamedQueries({
+        @NamedQuery(name = "Vote.countVotes", query = "SELECT count(v) FROM Vote v where v.election = :election and v.party = :party")
+})
 @XmlRootElement(name = "vote")
 public class Vote {
 
@@ -19,10 +22,16 @@ public class Vote {
     private Long id;
 
     @XmlElement(name = "voter")
+    @ManyToOne(fetch=FetchType.EAGER)
+    @JoinColumn(name="VOTER_ID")
     private Voter voter;
     @XmlElement(name = "party")
+    @ManyToOne(fetch=FetchType.EAGER)
+    @JoinColumn(name="PARTY_ID")
     private Party party;
     @XmlElement(name = "election")
+    @ManyToOne(fetch=FetchType.EAGER)
+    @JoinColumn(name="ELECTION_ID")
     private Election election;
 
     public Vote(){

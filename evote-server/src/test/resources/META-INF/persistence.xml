@@ -22,15 +22,21 @@
              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
              xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd">
 
-    <persistence-unit name="codingdojo">
+    <persistence-unit name="codingdojoTest" transaction-type="RESOURCE_LOCAL">
+        <provider>org.apache.openjpa.persistence.PersistenceProviderImpl</provider>
+
         <class>de.cofinpro.codingdojo.server.api.Election</class>
         <class>de.cofinpro.codingdojo.server.api.Party</class>
         <class>de.cofinpro.codingdojo.server.api.Vote</class>
         <class>de.cofinpro.codingdojo.server.api.Voter</class>
-        <class>de.cofinpro.codingdojo.server.api.Approval</class>
 
         <properties>
-            <property name="openjpa.jdbc.SynchronizeMappings" value="buildSchema(ForeignKeys=true)"/>
+            <property name="openjpa.ConnectionURL" value="jdbc:h2:mem:activiti-jpa;DB_CLOSE_DELAY=1000"/>
+            <property name="openjpa.ConnectionDriverName" value="org.h2.Driver"/>
+            <property name="openjpa.ConnectionUserName" value="sa"/>
+            <property name="openjpa.ConnectionPassword" value=""/>
+            <property name="openjpa.Log" value="DefaultLevel=WARN, Tool=INFO"/>
+            <property name="openjpa.jdbc.SynchronizeMappings" value="buildSchema(SchemaAction='add,deleteTableContents')"/>
         </properties>
 
     </persistence-unit>
