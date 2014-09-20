@@ -7,7 +7,7 @@ import de.cofinpro.codingdojo.server.api.Party;
 
 @Entity
 @XmlRootElement(name = "Approval")
-@NamedQueries({@NamedQuery(name = "Approval.findAllowed", query = "SELECT a FROM Approval a where a.status='zugelassen' and a.election=:election"
+@NamedQueries({@NamedQuery(name = "Approval.findAllowed", query = "SELECT a FROM Approval a where a.status='ZUGELASSEN' and a.election=:election"
 )})
 public class Approval {
 	
