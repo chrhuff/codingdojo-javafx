@@ -5,6 +5,7 @@ import de.cofinpro.codingdojo.server.api.Party;
 import de.cofinpro.codingdojo.server.api.PartyService;
 
 import java.util.Collection;
+import java.util.List;
 
 /**
  * Created by tahmed on 19.09.2014.
@@ -21,7 +22,7 @@ public class PartyServiceImpl implements PartyService {
     }
 
     @Override
-    public Collection<Party> getParties() {
+    public List<Party> getParties() {
         return null;
     }
 
