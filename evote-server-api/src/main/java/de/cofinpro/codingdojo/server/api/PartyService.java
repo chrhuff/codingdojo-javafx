@@ -43,6 +43,11 @@ public interface PartyService {
      */
     @PUT
     @Path("/apply")
+<<<<<<< HEAD
     void applyForElection(Party party, Election election);
+=======
+    @Produces(MediaType.TEXT_PLAIN)
+    Long applyForElection(Party party, Election election);
+>>>>>>> branch 'master' of git@repositories.dragonriders.de:cofinpro/codingdojo.git
 
 }

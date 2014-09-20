@@ -14,6 +14,11 @@
     </properties>
     <dependencies>
         <dependency>
+            <groupId>log4j</groupId>
+            <artifactId>log4j</artifactId>
+            <version>1.2.12</version>
+        </dependency>
+        <dependency>
             <groupId>javax.enterprise</groupId>
             <artifactId>cdi-api</artifactId>
             <version>1.2</version>
@@ -52,8 +57,15 @@
         </dependency>
         <dependency>
             <groupId>javax</groupId>
+            <groupId>org.jboss.resteasy</groupId>
+            <artifactId>resteasy-jaxb-provider</artifactId>
+            <version>3.0.8.Final</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.openejb</groupId>
             <artifactId>javaee-api</artifactId>
-            <version>6.0</version>
+            <version>6.0-6</version>
+            <scope>provided</scope>
         </dependency>
     </dependencies>
     <build>
