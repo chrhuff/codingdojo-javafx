@@ -1,27 +1,76 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
 <?import java.lang.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<Pane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="de.cofinpro.codingdojo.client.VoteController">
-    <children>
-        <GridPane fx:id="pane1" alignment="CENTER" hgap="5.0" vgap="5.0">
-            <children>
-                <Label fx:id="label" alignment="CENTER" text="Party:" GridPane.rowIndex="1" />
-                <TextField fx:id="nameField" alignment="CENTER_LEFT" maxWidth="300.0" minWidth="200.0" onAction="#registerVoter" prefWidth="250.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                <Button alignment="CENTER" onAction="#registerVoter" text="Register!" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="2" />
-            </children>
-            <columnConstraints>
-                <ColumnConstraints maxWidth="65.0" minWidth="10.0" percentWidth="10.0" prefWidth="65.0" />
-                <ColumnConstraints percentWidth="80.0" />
-                <ColumnConstraints maxWidth="77.0" minWidth="10.0" percentWidth="10.0" prefWidth="77.0" />
-            </columnConstraints>
-            <rowConstraints>
-                <RowConstraints />
-                <RowConstraints />
-                <RowConstraints />
-            </rowConstraints>
-        </GridPane>
-    </children>
-</Pane>
+<Accordion maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="de.cofinpro.codingdojo.client.BackendController">
+  <panes>
+    <TitledPane animated="false" text="Parties">
+      <content>
+        <AnchorPane>
+               <children>
+                  <VBox fillWidth="false" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="349.0" prefWidth="598.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <children>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Election" />
+                        <ComboBox fx:id="electionComboBox" maxWidth="1.7976931348623157E308" prefHeight="25.0" prefWidth="560.0" />
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Request" />
+                        <ComboBox fx:id="approvalComboBox" maxWidth="1.7976931348623157E308" prefHeight="25.0" prefWidth="562.0" />
+                        <Pane maxWidth="1.7976931348623157E308">
+                           <children>
+                              <FlowPane alignment="TOP_CENTER" columnHalignment="CENTER" hgap="10.0" layoutX="-2.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" rowValignment="TOP">
+                                 <children>
+                                    <Button fx:id="approveBtn" mnemonicParsing="false" text="Approve">
+                                       <FlowPane.margin>
+                                          <Insets />
+                                       </FlowPane.margin>
+                                    </Button>
+                                    <Button fx:id="rejectBtn" mnemonicParsing="false" text="Reject" />
+                                 </children>
+                                 <padding>
+                                    <Insets top="10.0" />
+                                 </padding>
+                              </FlowPane>
+                           </children>
+                        </Pane>
+                     </children>
+                  </VBox>
+               </children></AnchorPane>
+      </content>
+    </TitledPane>
+    <TitledPane animated="false" text="Votes">
+      <content>
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+               <children>
+                  <VBox fillWidth="false" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="349.0" prefWidth="598.0">
+                     <children>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Election" />
+                        <ComboBox fx:id="electionForVoteComboBox" maxWidth="1.7976931348623157E308" prefHeight="25.0" prefWidth="560.0" />
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Party" />
+                        <ComboBox fx:id="partyForVoteComboBox" maxWidth="1.7976931348623157E308" prefHeight="25.0" prefWidth="562.0" />
+                        <Pane maxWidth="1.7976931348623157E308">
+                           <children>
+                              <FlowPane alignment="TOP_CENTER" columnHalignment="CENTER" hgap="10.0" layoutX="-2.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" rowValignment="TOP">
+                                 <children>
+                                    <TextField fx:id="voteField" />
+                                    <Button fx:id="voteBtn" mnemonicParsing="false" text="Vote">
+                                       <FlowPane.margin>
+                                          <Insets />
+                                       </FlowPane.margin>
+                                    </Button>
+                                 </children>
+                                 <padding>
+                                    <Insets top="10.0" />
+                                 </padding>
+                              </FlowPane>
+                           </children>
+                        </Pane>
+                     </children>
+                  </VBox>
+               </children></AnchorPane>
+      </content>
+    </TitledPane>
+  </panes>
+</Accordion>
