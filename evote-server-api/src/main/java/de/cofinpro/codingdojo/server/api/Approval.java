@@ -2,8 +2,6 @@ package de.cofinpro.codingdojo.server.api;
 
 import javax.persistence.*;
 import javax.xml.bind.annotation.XmlRootElement;
-import de.cofinpro.codingdojo.server.api.Election;
-import de.cofinpro.codingdojo.server.api.Party;
 
 @Entity
 @XmlRootElement(name = "Approval")
@@ -22,12 +20,13 @@ public class Approval {
 	@ManyToOne(fetch=FetchType.EAGER)
     @JoinColumn(name="ELECTION_ID")
 	private Election election;
-	
-	private String status;
+
+    @Enumerated(value = EnumType.STRING)
+	private ApprovalStatus status;
 	
 	public Approval(){}
 	
-	public Approval(Party party, Election election, String status){
+	public Approval(Party party, Election election, ApprovalStatus status){
 		this.party= party;
 		this.election = election;
 		this.status = status;
@@ -57,11 +56,11 @@ public class Approval {
 		this.election = election;
 	}
 
-	public String getStatus() {
+	public ApprovalStatus getStatus() {
 		return status;
 	}
 
-	public void setStatus(String status) {
+	public void setStatus(ApprovalStatus status) {
 		this.status = status;
 	}
 	

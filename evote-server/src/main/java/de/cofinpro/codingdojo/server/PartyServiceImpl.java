@@ -6,14 +6,9 @@ import javax.ejb.EJB;
 import javax.ejb.Lock;
 import javax.ejb.LockType;
 import javax.ejb.Singleton;
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
 
-import de.cofinpro.codingdojo.server.api.Approval;
-import de.cofinpro.codingdojo.server.api.Election;
-import de.cofinpro.codingdojo.server.api.Party;
-import de.cofinpro.codingdojo.server.api.PartyService;
-import de.cofinpro.codingdojo.server.api.STATUS;
+import de.cofinpro.codingdojo.server.api.*;
+import de.cofinpro.codingdojo.server.api.ApprovalStatus;
 
 @Singleton
 @Lock(LockType.WRITE)
@@ -39,7 +34,7 @@ public class PartyServiceImpl implements PartyService{
 
 	@Override
 	public Long applyForElection(Party party, Election election) {
-    	Approval approval = new Approval(party, election, STATUS.BEANTRAGT.toString());
+    	Approval approval = new Approval(party, election, ApprovalStatus.BEANTRAGT);
     	partyDao.persistApproval(approval);
     	return approval.getId();
 	}

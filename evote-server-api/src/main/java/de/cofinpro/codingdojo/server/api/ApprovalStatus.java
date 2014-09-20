@@ -1,5 +1,5 @@
 package de.cofinpro.codingdojo.server.api;
 
-public enum STATUS {
+public enum ApprovalStatus {
 	BEANTRAGT, ABGELEHNT, ZUGELASSEN
 }

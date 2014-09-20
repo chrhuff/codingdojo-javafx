@@ -8,6 +8,8 @@ import javax.ejb.LockType;
 import javax.ejb.Singleton;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.TypedQuery;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -44,7 +46,16 @@ public class ElectionServiceImpl implements ElectionService {
      */
     @Override
     public List<Party> getParties(Long electionId) {
-        return entityManager.createNamedQuery("Party.findAll", Party.class).getResultList();
+
+        Election election = getElection(electionId);
+        if (election != null) {
+            TypedQuery<Party> query = entityManager.createNamedQuery("Party.findByElectionApprovalStatus", Party.class);
+            query.setParameter("election", election);
+            query.setParameter("approvalStatus", ApprovalStatus.ZUGELASSEN);
+            return query.getResultList();
+        } else {
+            return Collections.emptyList();
+        }
     }
 
     /**
