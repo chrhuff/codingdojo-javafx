@@ -35,21 +35,15 @@ public class PartyDao {
 	        entityManager.remove(party);
 	    }
 
-	    public List<Party> getVoters() {
+	    public List<Party> getParties() {
 	        Query query = entityManager.createQuery("SELECT p from Party as p");
 	        return query.getResultList();
 	    }
 
-	    public Party getVoter(Long partyId) {
+	    public Party getParty(Long partyId) {
 	        return entityManager.find(Party.class, partyId);
 	    }
 
-	    public Long createVote(Party party) {
-	        entityManager.persist(party);
-	        entityManager.flush();;
-	        return party.getId();
-	    }
-	    
 	    public void persistApproval(Approval approval){
 			entityManager.persist(approval);
 			entityManager.flush();

@@ -5,8 +5,9 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 @Entity
 @XmlRootElement(name = "Approval")
-@NamedQueries({@NamedQuery(name = "Approval.findAllowed", query = "SELECT a FROM Approval a where a.status='ZUGELASSEN' and a.election=:election"
-)})
+@NamedQueries({
+	@NamedQuery(name = "Approval.findByStatus", query = "SELECT a FROM Approval a where a.status=:status and a.election=:election")
+	})
 public class Approval {
 	
 	@Id
