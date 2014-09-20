@@ -2,7 +2,6 @@ package de.cofinpro.codingdojo.server.api;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
-import java.util.Collection;
 import java.util.List;
 
 /**
@@ -38,6 +37,7 @@ public interface PartyService {
 
     /**
      * Party apply for an election
+     *
      * @param party
      * @param election
      */
@@ -45,5 +45,4 @@ public interface PartyService {
     @Path("/apply")
     @Produces(MediaType.TEXT_PLAIN)
     Long applyForElection(Party party, Election election);
-
 }

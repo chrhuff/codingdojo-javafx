@@ -70,9 +70,8 @@ public class PartyController implements Initializable {
 	    	selectElectionGrid.setVisible(true);
 	    	
 	    	List<String> elections = new ArrayList<String>();
-			for(Election election : electionService.getElections()){
-				elections.add(election.getName());
-			}
+	    	electionService.getElections().forEach(election -> elections.add(election.getName()));
+
 			electionList.setItems(FXCollections.observableArrayList(new ArrayList(elections)));
 		}
     }
