@@ -1,13 +1,13 @@
 package de.cofinpro.codingdojo.client;
 
-import java.io.*;
-
 import javafx.application.Application.Parameters;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.*;
+import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 import javax.inject.Inject;
+import java.io.IOException;
+import java.io.InputStream;
 
 /**
  * This class loads the stage from fxml. We should not need to modify this, edit the fxml

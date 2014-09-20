@@ -4,7 +4,7 @@ import de.cofinpro.codingdojo.server.api.Vote;
 import de.cofinpro.codingdojo.server.api.Voter;
 import de.cofinpro.codingdojo.server.api.VoterService;
 
-import javax.inject.Inject;
+import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
@@ -14,6 +14,7 @@ import java.util.List;
 /**
  * Created by tahmed on 19.09.2014.
  */
+@Stateless
 public class VoterServiceImpl implements VoterService {
 
     @PersistenceContext(unitName = "codingdojo")

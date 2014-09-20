@@ -1,20 +1,13 @@
 package de.cofinpro.codingdojo.client;
 
-import java.net.URL;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.ResourceBundle;
-
-import javax.inject.Inject;
-
-import de.cofinpro.codingdojo.server.api.Election;
-import de.cofinpro.codingdojo.server.api.ElectionService;
-import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ComboBox;
 import javafx.scene.layout.GridPane;
 import javafx.scene.text.Text;
+
+import java.net.URL;
+import java.util.ResourceBundle;
 
 public class PartyElectionController implements Initializable  {
 

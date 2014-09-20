@@ -1,10 +1,10 @@
 package de.cofinpro.codingdojo.client;
 
-import java.io.IOException;
-
 import javafx.application.Application;
 import javafx.stage.Stage;
-import org.jboss.weld.environment.se.*;
+import org.jboss.weld.environment.se.Weld;
+
+import java.io.IOException;
 
 /**
  * Main runner. Boots up Weld and launches the JavaFX app.
