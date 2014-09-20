@@ -45,7 +45,7 @@ public class VoterDao {
 
     public Long createVote(Vote vote) {
         entityManager.persist(vote);
-        entityManager.flush();;
+        entityManager.flush();
         return vote.getId();
     }
 }

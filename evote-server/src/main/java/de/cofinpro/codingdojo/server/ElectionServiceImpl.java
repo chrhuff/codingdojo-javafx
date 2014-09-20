@@ -49,13 +49,18 @@ public class ElectionServiceImpl implements ElectionService {
      */
     @Override
     public Integer getVotes(Long electionId) {
-        return entityManager.createNamedQuery("Vote.countVotes", Integer.class).getSingleResult().intValue();
-    }
+        Election election = entityManager.find(Election.class, electionId);
+        return entityManager.createNamedQuery("Vote.countVotes", Long.class)
+                .setParameter("election", election).getSingleResult().intValue();    }
     /**
      * {@inheritDoc}
      */
     @Override
     public Integer getVotes(Long electionId, Long partyId) {
-       return 42;
+        Election election = entityManager.find(Election.class, electionId);
+        Party party = entityManager.find(Party.class, partyId);
+        return entityManager.createNamedQuery("Vote.countVotesForParty", Long.class)
+                .setParameter("party", party)
+                .setParameter("election", election).getSingleResult().intValue();
     }
 }

@@ -9,7 +9,8 @@ import javax.xml.bind.annotation.XmlRootElement;
  */
 @Entity
 @NamedQueries({
-        @NamedQuery(name = "Vote.countVotes", query = "SELECT count(v) FROM Vote v where v.election = :election and v.party = :party")
+        @NamedQuery(name = "Vote.countVotesForParty", query = "SELECT count(v) FROM Vote v where v.election = :election and v.party = :party"),
+        @NamedQuery(name = "Vote.countVotes", query = "SELECT count(v) FROM Vote v where v.election = :election")
 })
 @XmlRootElement(name = "vote")
 public class Vote {

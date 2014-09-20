@@ -59,13 +59,14 @@ public class ElectionServiceImplTest {
 
             Vote vote2 = new Vote();
             vote2.setElection(election);
-            vote2.setParty(csu);
+            vote2.setParty(pbc);
             vote2.setVoter(voter2);
             em.persist(vote2);
             trx.commit();
 
-            assertTrue(em.createNamedQuery("Vote.countVotes", Long.class).setParameter("election", election).setParameter("party", csu).getSingleResult().longValue() == 2l);
-            assertTrue(em.createNamedQuery("Vote.countVotes", Long.class).setParameter("election", election).setParameter("party", pbc).getSingleResult().longValue() == 0l);
+            assertTrue(em.createNamedQuery("Vote.countVotesForParty", Long.class).setParameter("election", election).setParameter("party", csu).getSingleResult().longValue() == 1l);
+            assertTrue(em.createNamedQuery("Vote.countVotesForParty", Long.class).setParameter("election", election).setParameter("party", pbc).getSingleResult().longValue() == 1l);
+            assertTrue(em.createNamedQuery("Vote.countVotes", Long.class).setParameter("election", election).getSingleResult().longValue() == 2l);
 
         } catch (RuntimeException e) {
             if (trx != null && trx.isActive()) {
