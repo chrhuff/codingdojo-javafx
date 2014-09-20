@@ -2,6 +2,9 @@ package de.cofinpro.codingdojo.server;
 
 import java.util.List;
 
+import javax.ejb.Stateless;
+import javax.ejb.TransactionAttribute;
+import javax.ejb.TransactionAttributeType;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
@@ -11,6 +14,8 @@ import de.cofinpro.codingdojo.server.api.Party;
 import de.cofinpro.codingdojo.server.api.Vote;
 import de.cofinpro.codingdojo.server.api.Voter;
 
+@Stateless
+@TransactionAttribute(value = TransactionAttributeType.REQUIRES_NEW)
 public class PartyDao {
 
 	 @PersistenceContext(unitName = "codingdojo")
