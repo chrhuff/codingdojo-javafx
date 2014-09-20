@@ -2,7 +2,6 @@ package de.cofinpro.codingdojo.server.api;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
-import java.util.Collection;
 import java.util.List;
 
 /**
@@ -38,16 +37,12 @@ public interface PartyService {
 
     /**
      * Party apply for an election
+     *
      * @param party
      * @param election
      */
     @PUT
     @Path("/apply")
-<<<<<<< HEAD
-    void applyForElection(Party party, Election election);
-=======
     @Produces(MediaType.TEXT_PLAIN)
     Long applyForElection(Party party, Election election);
->>>>>>> branch 'master' of git@repositories.dragonriders.de:cofinpro/codingdojo.git
-
 }
