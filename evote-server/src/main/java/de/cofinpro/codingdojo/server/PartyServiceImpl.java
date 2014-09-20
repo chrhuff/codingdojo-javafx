@@ -39,7 +39,7 @@ public class PartyServiceImpl implements PartyService{
 
 	@Override
 	public Long applyForElection(Party party, Election election) {
-    	Approval approval = new Approval(party.getId(), election.getId(), STATUS.BEANTRAGT.toString());
+    	Approval approval = new Approval(party, election, STATUS.BEANTRAGT.toString());
     	partyDao.persistApproval(approval);
     	return approval.getId();
 	}

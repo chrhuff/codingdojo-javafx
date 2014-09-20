@@ -1,16 +1,13 @@
 package de.cofinpro.codingdojo.server.api;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.NamedQueries;
-import javax.persistence.NamedQuery;
+import javax.persistence.*;
 import javax.xml.bind.annotation.XmlRootElement;
+import de.cofinpro.codingdojo.server.api.Election;
+import de.cofinpro.codingdojo.server.api.Party;
 
 @Entity
 @XmlRootElement(name = "Approval")
-@NamedQueries({@NamedQuery(name = "Election.findAll", query = "SELECT e FROM Election e"
+@NamedQueries({@NamedQuery(name = "Approval.findAllowed", query = "SELECT a FROM Approval a where a.status='zugelassen' and a.election=:election"
 )})
 public class Approval {
 	
@@ -18,39 +15,21 @@ public class Approval {
 	@GeneratedValue(strategy= GenerationType.AUTO)
 	private Long id;
 	
-	private Long partyId;
-
-	private Long electionId;
+	@ManyToOne(fetch=FetchType.EAGER)
+    @JoinColumn(name="PARTY_ID")
+	private Party party;
+	
+	@ManyToOne(fetch=FetchType.EAGER)
+    @JoinColumn(name="ELECTION_ID")
+	private Election election;
 	
 	private String status;
 	
-	public Approval(Long partyId, Long electionId, String status){
-		this.partyId = partyId;
-		this.electionId = electionId;
-		this.status = status;
-	}
+	public Approval(){}
 	
-	public Long getPartyId() {
-		return partyId;
-	}
-
-	public void setPartyId(Long partyId) {
-		this.partyId = partyId;
-	}
-
-	public Long getElectionId() {
-		return electionId;
-	}
-
-	public void setElectionId(Long electionId) {
-		this.electionId = electionId;
-	}
-
-	public String getStatus() {
-		return status;
-	}
-
-	public void setStatus(String status) {
+	public Approval(Party party, Election election, String status){
+		this.party= party;
+		this.election = election;
 		this.status = status;
 	}
 
@@ -60,6 +39,30 @@ public class Approval {
 
 	public void setId(Long id) {
 		this.id = id;
+	}
+
+	public Party getParty() {
+		return party;
+	}
+
+	public void setParty(Party party) {
+		this.party = party;
+	}
+
+	public Election getElection() {
+		return election;
+	}
+
+	public void setElection(Election election) {
+		this.election = election;
+	}
+
+	public String getStatus() {
+		return status;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
 	}
 	
 }
