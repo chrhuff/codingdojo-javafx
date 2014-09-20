@@ -19,5 +19,10 @@
                 <fx:include fx:id="barTabPage" source="/results.fxml"/>
             </content>
         </Tab>
+        <Tab text="Backend" fx:id="backendTab" closable="false">
+            <content>
+                <fx:include fx:id="backendTabPage" source="/backend.fxml"/>
+            </content>
+        </Tab>
     </tabs>
 </TabPane>

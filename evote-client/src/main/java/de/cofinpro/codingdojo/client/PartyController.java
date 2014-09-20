@@ -1,5 +1,6 @@
 package de.cofinpro.codingdojo.client;
 
+import de.cofinpro.codingdojo.client.javafx.ElectionListCell;
 import de.cofinpro.codingdojo.server.api.Election;
 import de.cofinpro.codingdojo.server.api.ElectionService;
 import de.cofinpro.codingdojo.server.api.Party;
@@ -8,15 +9,17 @@ import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.ListCell;
+import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.text.Text;
+import javafx.util.Callback;
 
 import javax.inject.Inject;
 import java.io.IOException;
 import java.net.URL;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
@@ -25,39 +28,39 @@ import java.util.ResourceBundle;
  * We can use CDI here :-).
  */
 public class PartyController implements Initializable {
-    
-    @FXML 
+
+    @FXML
     private Text registerPartytarget;
-    
+
     @FXML
     private TextField partyName;
-    
-    @FXML 
+
+    @FXML
     private GridPane registerPartyGrid;
-    
+
     @FXML
     private FlowPane root;
-    
+
     @Inject
     private ElectionService electionService;
-    
+
     @Inject
     private PartyService partyService;
-    
+
     @FXML
-    private ComboBox<String> electionList;
-    
-    @FXML 
+    private ComboBox<Election> electionList;
+
+    @FXML
     private GridPane selectElectionGrid;
-    
-    @FXML 
+
+    @FXML
     private Text registerForElectionTarget;
-    
+
     private Long partyId;
-    
+
     @FXML
     public void onRegisterPartyClick() throws IOException {
-    	if(!partyName.getText().trim().equals("")){
+        if (!partyName.getText().trim().equals("")) {
 
             Party party = new Party(partyName.getText().trim());
 
@@ -65,40 +68,36 @@ public class PartyController implements Initializable {
 
             registerPartytarget.setText("Party '" + partyName.getText() + "' registered, party ID is " + partyId);
 
-	    	registerPartyGrid.setVisible(false);
-	    	selectElectionGrid.setVisible(true);
-	    	
-	    	List<String> elections = new ArrayList<String>();
-	    	electionService.getElections().forEach(election -> elections.add(election.getName()));
-
-			electionList.setItems(FXCollections.observableArrayList(new ArrayList(elections)));
-		}
+            registerPartyGrid.setVisible(false);
+            selectElectionGrid.setVisible(true);
+            List<Election> elections = electionService.getElections();
+            electionList.setItems(FXCollections.observableArrayList(elections));
+        }
     }
-    
+
     @FXML
-    public void onRegisterForElection(){
-    	if(!electionList.getValue().trim().equals("")){
-    		Election election = getElection(electionList.getValue().trim());
-    		Party party = partyService.getParty(partyId);
-    		partyService.applyForElection(party, election);
-    	}else{
-    		registerForElectionTarget.setText("Please select an election");
-    	}
+    public void onRegisterForElection() {
+        Election election = electionList.getSelectionModel().getSelectedItem();
+        if (election != null) {
+            Party party = partyService.getParty(partyId);
+            partyService.applyForElection(party, election);
+        } else {
+            registerForElectionTarget.setText("Please select an election");
+        }
     }
 
-	@Override
-	public void initialize(URL arg0, ResourceBundle arg1) {
-    	
-    	selectElectionGrid.setVisible(false);
-    	registerPartyGrid.setVisible(true);
-	}
-	
-	private Election getElection(String name){
-		for(Election election : electionService.getElections()){
-			if(election.getName().equals(name))
-				return election;
-		}
-		return null;
-	}
+    @Override
+    public void initialize(URL arg0, ResourceBundle arg1) {
 
+        electionList.setCellFactory(new Callback<ListView<Election>, ListCell<Election>>() {
+            @Override
+            public ListCell<Election> call(ListView<Election> p) {
+                return new ElectionListCell();
+            }
+        });
+        electionList.setButtonCell(new ElectionListCell());
+
+        selectElectionGrid.setVisible(false);
+        registerPartyGrid.setVisible(true);
+    }
 }

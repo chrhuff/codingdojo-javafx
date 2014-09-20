@@ -19,15 +19,14 @@ public class Vote {
     @GeneratedValue(strategy= GenerationType.AUTO)
     private Long id;
 
-    @XmlElement(name = "voter")
     @ManyToOne(fetch=FetchType.EAGER)
     @JoinColumn(name="VOTER_ID")
     private Voter voter;
-    @XmlElement(name = "party")
+
     @ManyToOne(fetch=FetchType.EAGER)
     @JoinColumn(name="PARTY_ID")
     private Party party;
-    @XmlElement(name = "election")
+
     @ManyToOne(fetch=FetchType.EAGER)
     @JoinColumn(name="ELECTION_ID")
     private Election election;

@@ -32,13 +32,15 @@
             </columnConstraints>
             <rowConstraints>
                 <RowConstraints minHeight="10.0" percentHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                <RowConstraints minHeight="10.0" percentHeight="80.0" prefHeight="30.0" vgrow="ALWAYS" />
+                <RowConstraints minHeight="10.0" percentHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" percentHeight="70.0" prefHeight="30.0" vgrow="SOMETIMES" />
                 <RowConstraints minHeight="10.0" percentHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
             </rowConstraints>
             <children>
-                <ComboBox id="election" fx:id="election" maxWidth="350.0" minWidth="250.0" prefWidth="250.0" GridPane.columnIndex="1" GridPane.rowIndex="0" />
-                <ListView id="party" fx:id="party" maxWidth="350.0" minWidth="250.0" prefHeight="450.0" prefWidth="250.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                <Button minWidth="50.0" mnemonicParsing="false" text="Vote!" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="2" GridPane.valignment="TOP" />
+                <Label id="greeter" fx:id="greeter" text="Willkommen!" GridPane.columnIndex="1" />
+                <ComboBox id="election" fx:id="election" maxWidth="350.0" minWidth="250.0" prefWidth="250.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                <ListView id="party" fx:id="party" maxWidth="350.0" minWidth="250.0" prefHeight="450.0" prefWidth="250.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                <Button minWidth="50.0" mnemonicParsing="false" onAction="#castVote" text="Vote!" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="3" GridPane.valignment="TOP" />
             </children>
         </GridPane>
     </children>

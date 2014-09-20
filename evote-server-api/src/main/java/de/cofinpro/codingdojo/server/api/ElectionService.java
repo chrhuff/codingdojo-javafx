@@ -53,4 +53,8 @@ public interface ElectionService {
     @Produces(MediaType.TEXT_PLAIN)
     Integer getVotes(@PathParam("electionId")Long electionId, @PathParam("partyId")Long partyId);
 
+    @POST
+    @Path("/{electionId}/{partyId}/fakevotes")
+    @Produces(MediaType.TEXT_PLAIN)
+    Long vote(@PathParam("electionId")Long electionId, @PathParam("partyId")Long partyId, int count);
 }
