@@ -18,7 +18,8 @@ public interface PartyService {
      *
      * @param party
      */
-    @PUT
+    @POST
+    @Path("/register")
     @Produces(MediaType.TEXT_PLAIN)
     Long register(Party party);
 

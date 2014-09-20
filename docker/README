@@ -1,0 +1,23 @@
+1. Start boot2docker and open gitbash in the codingdojo
+
+2. copy the docker-folder in your docker-vm with:
+scp -P2022 -r docker localhost:~/
+
+3. change directory in vm to the new docker directory
+
+4. execute the setup-shell-script with
+sh setup.sh
+
+5. The tomee and the mariadb is now running in the docker, check with
+docker ps
+
+6. For deploying in the tomee, get first the ip with (i'll name it docker_ip)
+ifconfig
+for example ifconfig eth1
+
+7. Open the browser and goto the following address
+docker_ip:8080/manager/
+
+8. The default username and pw is admin:admin
+
+9. Check Deploy "WAR file to deploy" and have phun ;)
