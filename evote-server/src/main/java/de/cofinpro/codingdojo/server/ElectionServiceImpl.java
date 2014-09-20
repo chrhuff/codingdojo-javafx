@@ -4,6 +4,9 @@ import de.cofinpro.codingdojo.server.api.Election;
 import de.cofinpro.codingdojo.server.api.ElectionService;
 import de.cofinpro.codingdojo.server.api.Party;
 
+import javax.ejb.Lock;
+import javax.ejb.LockType;
+import javax.ejb.Singleton;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import java.util.List;
@@ -11,6 +14,8 @@ import java.util.List;
 /**
  * Created by Christian on 19.09.2014.
  */
+@Singleton
+@Lock(LockType.WRITE)
 public class ElectionServiceImpl implements ElectionService {
 
     @PersistenceContext(unitName = "codingdojo")
