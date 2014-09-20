@@ -44,5 +44,5 @@ public interface PartyService {
     @POST
     @Path("/apply/{electionId}/{partyId}")
     @Produces(MediaType.TEXT_PLAIN)
-    Long applyForElection(Long electionId, Long partyId);
+    Long applyForElection(@PathParam("electionId") Long electionId, @PathParam("partyId") Long partyId);
 }
