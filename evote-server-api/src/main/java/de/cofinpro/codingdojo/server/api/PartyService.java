@@ -3,6 +3,7 @@ package de.cofinpro.codingdojo.server.api;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import java.util.Collection;
+import java.util.List;
 
 /**
  * Created by tahmed on 19.09.2014.
@@ -33,7 +34,7 @@ public interface PartyService {
      * @return get all parties
      */
     @GET
-    Collection<Party> getParties();
+    List<Party> getParties();
 
     /**
      * Party apply for an election

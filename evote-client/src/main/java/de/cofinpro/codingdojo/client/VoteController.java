@@ -1,9 +1,6 @@
 package de.cofinpro.codingdojo.client;
 
-import de.cofinpro.codingdojo.server.api.Election;
-import de.cofinpro.codingdojo.server.api.ElectionService;
-import de.cofinpro.codingdojo.server.api.Party;
-import de.cofinpro.codingdojo.server.api.VoterService;
+import de.cofinpro.codingdojo.server.api.*;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
@@ -24,6 +21,7 @@ import java.io.InputStream;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 import java.util.ResourceBundle;
 
 public class VoteController {
@@ -58,8 +56,13 @@ public class VoteController {
     public void registerVoter() {
         pane1.setVisible(false);
         pane2.setVisible(true);
-        Collection<Election> elections = electionService.getElections();
-        election.setItems(FXCollections.observableList(new ArrayList(elections)));
+
+        Voter voter = new Voter();
+        voter.setName(nameField.getText());
+        Long myId = voterService.register(voter);
+
+        List<Election> elections = electionService.getElections();
+        election.setItems(FXCollections.observableList(elections));
 
         election.getSelectionModel().selectedItemProperty().addListener((selected, oldElection, newElection) -> {
             if (newElection != null) {

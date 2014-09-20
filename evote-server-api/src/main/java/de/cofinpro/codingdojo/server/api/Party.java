@@ -1,9 +1,6 @@
 package de.cofinpro.codingdojo.server.api;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
@@ -11,6 +8,8 @@ import javax.xml.bind.annotation.XmlRootElement;
  */
 @Entity
 @XmlRootElement(name = "party")
+@NamedQueries({@NamedQuery(name = "Party.findAll", query = "SELECT p FROM Party p"
+)})
 public class Party {
 
     @Id

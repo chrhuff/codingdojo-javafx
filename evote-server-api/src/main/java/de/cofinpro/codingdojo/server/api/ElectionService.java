@@ -3,6 +3,7 @@ package de.cofinpro.codingdojo.server.api;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import java.util.Collection;
+import java.util.List;
 
 /**
  * Created by tahmed on 19.09.2014.
@@ -23,14 +24,14 @@ public interface ElectionService {
      * @return all elections
      */
     @GET
-    Collection<Election> getElections();
+    List<Election> getElections();
 
     /**
      * @return get all allowed parties for an election
      */
     @GET
     @Path("/{electionId}/parties")
-    Collection<Party> getParties(@PathParam("electionId")Long electionId);
+    List<Party> getParties(@PathParam("electionId")Long electionId);
 
     /**
      * Returns the votes for an election
