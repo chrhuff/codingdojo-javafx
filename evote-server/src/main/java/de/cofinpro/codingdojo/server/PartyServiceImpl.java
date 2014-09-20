@@ -15,7 +15,7 @@ import de.cofinpro.codingdojo.server.api.ApprovalStatus;
 public class PartyServiceImpl implements PartyService{
 
 	@EJB 
-	PartyDao partyDao;
+	private PartyDao partyDao;
 	
 	@Override
 	public Long register(Party party) {
@@ -24,12 +24,12 @@ public class PartyServiceImpl implements PartyService{
 
 	@Override
 	public Party getParty(Long partyId) {
-		return partyDao.getVoter(partyId);
+		return partyDao.getParty(partyId);
 	}
 
 	@Override
 	public List getParties() {
-		return partyDao.getVoters();
+		return partyDao.getParties();
 	}
 
 	@Override
