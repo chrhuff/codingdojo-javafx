@@ -1,6 +1,7 @@
 package de.cofinpro.codingdojo.server.api;
 
 import javax.ws.rs.*;
+import javax.ws.rs.core.MediaType;
 import java.util.Collection;
 
 /**
@@ -17,7 +18,7 @@ public interface PartyService {
      * @param party
      */
     @POST
-    @Path("register")
+    @Path("/register")
     @Produces("text/plain")
     Long register(Party party);
 
@@ -39,6 +40,8 @@ public interface PartyService {
      * @param party
      * @param election
      */
+    @POST
+    @Path("/apply")
     Long applyForElection(Party party, Election election);
 
 }

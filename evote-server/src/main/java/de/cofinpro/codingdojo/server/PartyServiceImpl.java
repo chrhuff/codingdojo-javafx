@@ -1,5 +1,6 @@
 package de.cofinpro.codingdojo.server;
 
+import de.cofinpro.codingdojo.server.api.Election;
 import de.cofinpro.codingdojo.server.api.Party;
 import de.cofinpro.codingdojo.server.api.PartyService;
 
@@ -25,7 +26,8 @@ public class PartyServiceImpl implements PartyService {
     }
 
     @Override
-    public Long applyForElection(Long partyId, Long electionId) {
+    public Long applyForElection(Party party, Election election) {
         return null;
     }
+
 }

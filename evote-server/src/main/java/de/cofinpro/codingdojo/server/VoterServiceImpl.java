@@ -7,7 +7,6 @@ import de.cofinpro.codingdojo.server.api.VoterService;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import javax.persistence.Query;
 import javax.ws.rs.*;
 import java.util.Arrays;
 import java.util.Collection;
@@ -45,8 +44,10 @@ public class VoterServiceImpl implements VoterService {
      */
     @Override
     public Collection<Voter> getVoters() {
-        Query query = entityManager.createQuery("SELECT v from Voter as v");
-        return query.getResultList();
+        Voter voter = new Voter();
+        voter.setId(24l);
+        voter.setName("DummyVoter");
+        return Arrays.asList(voter);
     }
 
     /**
@@ -54,7 +55,6 @@ public class VoterServiceImpl implements VoterService {
      */
     @Override
     public Long vote(Vote vote) {
-        entityManager.persist(vote);
-        return vote.getId();
+        return 23l;
     }
 }

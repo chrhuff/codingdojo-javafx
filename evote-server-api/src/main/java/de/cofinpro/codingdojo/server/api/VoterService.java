@@ -18,15 +18,15 @@ public interface VoterService {
      * @param voter
      */
     @POST
-    @Path("register")
+    @Path("/register")
     Long register(Voter voter);
 
     /**
      * @return get voter
      */
     @GET
-    @Path("{voterId}")
-    Voter getVoter(Long voterId);
+    @Path("/{voterId}")
+    Voter getVoter(@PathParam("voterId")Long voterId);
 
     /**
      * @return get voters

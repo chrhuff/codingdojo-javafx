@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 cd tomee7
     docker build -t="codingdojo/tomee7:latest" .
 cd -
