@@ -27,6 +27,7 @@
         <class>de.cofinpro.codingdojo.server.api.Party</class>
         <class>de.cofinpro.codingdojo.server.api.Vote</class>
         <class>de.cofinpro.codingdojo.server.api.Voter</class>
+        <class>de.cofinpro.codingdojo.server.api.Approval</class>
 
         <properties>
             <property name="openjpa.jdbc.SynchronizeMappings" value="buildSchema(ForeignKeys=true)"/>
