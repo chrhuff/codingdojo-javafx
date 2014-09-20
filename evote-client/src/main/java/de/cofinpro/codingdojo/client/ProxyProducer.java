@@ -1,5 +1,6 @@
 package de.cofinpro.codingdojo.client;
 
+import de.cofinpro.codingdojo.server.api.ApprovalService;
 import de.cofinpro.codingdojo.server.api.ElectionService;
 import de.cofinpro.codingdojo.server.api.PartyService;
 import de.cofinpro.codingdojo.server.api.VoterService;
@@ -30,4 +31,10 @@ public class ProxyProducer {
         return target.proxy(VoterService.class);
     }
 
+    @Produces
+    public ApprovalService produceApprovalService() {
+        ResteasyClient client = new ResteasyClientBuilder().build();
+        ResteasyWebTarget target = client.target(URI);
+        return target.proxy(ApprovalService.class);
+    }
 }
