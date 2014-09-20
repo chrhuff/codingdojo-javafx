@@ -79,7 +79,7 @@ public class PartyController implements Initializable {
         Election election = electionList.getSelectionModel().getSelectedItem();
         if (election != null) {
 
-            partyService.applyForElection(registeredParty, election);
+            partyService.applyForElection(election.getId(), registeredParty.getId());
         } else {
             registerForElectionTarget.setText("Please select an election");
         }
