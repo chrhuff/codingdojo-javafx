@@ -14,14 +14,18 @@ import javafx.scene.layout.GridPane;
 import javax.inject.Inject;
 import java.util.List;
 
-public class VoteController {
+public class BackendController {
 
     @FXML
-    private ListView<Party> party;
+    private ListView party;
     @Inject
     private VoterService voterService;
     @Inject
     private ElectionService electionService;
+
+    @FXML
+    public void vote() {
+    }
 
     @FXML
     private ComboBox<Election> election;
@@ -38,11 +42,7 @@ public class VoteController {
     @Inject
     private FXMLLoader fxmlLoader;
 
-    @FXML
-    private Label greeter;
-
     private Election selectedElection;
-    private Voter registeredVoter;
 
     @FXML
     public void registerVoter() {
@@ -50,9 +50,6 @@ public class VoteController {
         Voter voter = new Voter();
         voter.setName(nameField.getText());
         Long myId = voterService.register(voter);
-        voter.setId(myId);
-
-        this.registeredVoter = voter;
 
         List<Election> elections = electionService.getElections();
         election.setItems(FXCollections.observableList(elections));
@@ -67,22 +64,9 @@ public class VoteController {
         });
         pane1.setVisible(false);
         pane2.setVisible(true);
-
-        greeter.setText("Willkommen, Wähler Nummer " + myId);
     }
 
     @FXML
     public void castVote() {
-
-        Party selectedParty = this.party.getSelectionModel().getSelectedItem();
-
-        Vote vote = new Vote();
-        vote.setElection(this.selectedElection);
-        vote.setParty(selectedParty);
-        vote.setVoter(this.registeredVoter);
-
-        this.voterService.vote(vote);
-        pane1.setVisible(false);
-        pane2.setVisible(false);
     }
 }

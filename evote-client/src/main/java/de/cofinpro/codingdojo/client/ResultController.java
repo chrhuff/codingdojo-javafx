@@ -44,7 +44,7 @@ public class ResultController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        Collection<Election> electionList = electionService.getElections();
+        Collection<Election> electionList = Collections.emptyList();//electionService.getElections();
 
         electionComboBox.setOnAction(new EventHandler<ActionEvent>() {
             @Override
