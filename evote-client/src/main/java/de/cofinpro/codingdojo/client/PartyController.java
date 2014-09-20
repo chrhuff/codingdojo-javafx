@@ -12,8 +12,7 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
-import javafx.scene.layout.FlowPane;
-import javafx.scene.layout.GridPane;
+import javafx.scene.layout.*;
 import javafx.scene.text.Text;
 import javafx.util.Callback;
 
@@ -39,7 +38,7 @@ public class PartyController implements Initializable {
     private GridPane registerPartyGrid;
 
     @FXML
-    private FlowPane root;
+    private Pane root;
 
     @Inject
     private ElectionService electionService;
@@ -80,6 +79,9 @@ public class PartyController implements Initializable {
         if (election != null) {
 
             partyService.applyForElection(election.getId(), registeredParty.getId());
+            selectElectionGrid.setVisible(false);
+            registerPartyGrid.setVisible(true);
+            partyName.setText(null);
         } else {
             registerForElectionTarget.setText("Please select an election");
         }
