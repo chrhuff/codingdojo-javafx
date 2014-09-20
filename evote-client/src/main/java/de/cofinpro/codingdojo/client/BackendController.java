@@ -133,7 +133,7 @@ public class BackendController implements Initializable {
                 {
                     voteField.setText("NAN");
                 }
-                electionService.vote(election.getId(), party.getId(), new Integer(voteField.getText()));
+                electionService.vote(election.getId(), party.getId(), new Long(voteField.getText()));
             }
         });
     }
