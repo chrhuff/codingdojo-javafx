@@ -1,6 +1,8 @@
 package de.cofinpro.codingdojo.server.api;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
@@ -13,8 +15,11 @@ import javax.xml.bind.annotation.XmlRootElement;
 public class Approval {
 	
 	@Id
+	@GeneratedValue(strategy= GenerationType.AUTO)
+	private Long id;
+	
 	private Long partyId;
-	@Id
+
 	private Long electionId;
 	
 	private String status;
@@ -47,6 +52,14 @@ public class Approval {
 
 	public void setStatus(String status) {
 		this.status = status;
+	}
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
 	}
 	
 }
