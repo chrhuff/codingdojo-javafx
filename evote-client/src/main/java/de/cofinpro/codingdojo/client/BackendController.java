@@ -83,11 +83,7 @@ public class BackendController implements Initializable {
             @Override
             public void handle(ActionEvent event) {
                 Election selectedElection = electionForVoteComboBox.getSelectionModel().getSelectedItem();
-                if (selectedElection != null) {
-                    ObservableList<Party> list = FXCollections.observableArrayList(
-                            electionService.getParties(selectedElection.getId()));
-                    partyForVoteComboBox.setItems(list);
-                }
+                updateApprovalComboBox(selectedElection);
             }
         });
 
@@ -107,6 +103,26 @@ public class BackendController implements Initializable {
         });
         partyForVoteComboBox.setButtonCell(new PartyListCell());
 
+
+        approveBtn.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                Approval approval = approvalComboBox.getSelectionModel().getSelectedItem();
+                approvalService.approve(approval.getId());
+                Election selectedElection = electionForVoteComboBox.getSelectionModel().getSelectedItem();
+                updateApprovalComboBox(selectedElection);
+            }
+        });
+
+        rejectBtn.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                Approval approval = approvalComboBox.getSelectionModel().getSelectedItem();
+                approvalService.reject(approval.getId());
+                Election selectedElection = electionForVoteComboBox.getSelectionModel().getSelectedItem();
+                updateApprovalComboBox(selectedElection);
+            }
+        });
         voteBtn.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
@@ -120,5 +136,13 @@ public class BackendController implements Initializable {
                 electionService.vote(election.getId(), party.getId(), new Integer(voteField.getText()));
             }
         });
+    }
+
+    private void updateApprovalComboBox(Election selectedElection) {
+        if (selectedElection != null) {
+            ObservableList<Party> list = FXCollections.observableArrayList(
+                    electionService.getParties(selectedElection.getId()));
+            partyForVoteComboBox.setItems(list);
+        }
     }
 }
