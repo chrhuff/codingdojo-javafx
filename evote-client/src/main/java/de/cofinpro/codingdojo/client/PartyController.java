@@ -56,31 +56,30 @@ public class PartyController implements Initializable {
     @FXML
     private Text registerForElectionTarget;
 
-    private Long partyId;
+    private Party registeredParty;
 
     @FXML
     public void onRegisterPartyClick() throws IOException {
         if (!partyName.getText().trim().equals("")) {
-
             Party party = new Party(partyName.getText().trim());
-
-            partyId = partyService.register(party);
-
+            Long partyId = partyService.register(party);
+            party.setId(partyId);
             registerPartytarget.setText("Party '" + partyName.getText() + "' registered, party ID is " + partyId);
-
-            registerPartyGrid.setVisible(false);
-            selectElectionGrid.setVisible(true);
-            List<Election> elections = electionService.getElections();
-            electionList.setItems(FXCollections.observableArrayList(elections));
+            this.registeredParty = party;
         }
+
+        registerPartyGrid.setVisible(false);
+        selectElectionGrid.setVisible(true);
+        List<Election> elections = electionService.getElections();
+        electionList.setItems(FXCollections.observableArrayList(elections));
     }
 
     @FXML
     public void onRegisterForElection() {
         Election election = electionList.getSelectionModel().getSelectedItem();
         if (election != null) {
-            Party party = partyService.getParty(partyId);
-            partyService.applyForElection(party, election);
+
+            partyService.applyForElection(registeredParty, election);
         } else {
             registerForElectionTarget.setText("Please select an election");
         }
