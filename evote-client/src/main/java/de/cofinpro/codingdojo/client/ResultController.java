@@ -53,6 +53,7 @@ public class ResultController implements Initializable {
                 Election selectedElection = electionComboBox.getSelectionModel().getSelectedItem();
                 List<Party> parties = electionService.getParties(selectedElection.getId());
                 updatePieChart(selectedElection, parties);
+                updateTotal(selectedElection);
             }
         });
         electionComboBox.setItems(FXCollections.observableArrayList(electionList));
@@ -64,6 +65,12 @@ public class ResultController implements Initializable {
         });
         electionComboBox.setButtonCell(new ElectionListCell());
         chart.setData(pieChartData);
+        results.setVisible(false);
+    }
+
+    private void updateTotal(Election election) {
+        results.setText(String.valueOf(electionService.getVotes(election.getId())));
+        results.setVisible(true);
     }
 
     private void updatePieChart(Election election, List<Party> parties) {
