@@ -6,7 +6,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<Accordion maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="de.cofinpro.codingdojo.client.BackendController">
+<Accordion maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="560.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="de.cofinpro.codingdojo.client.BackendController">
   <panes>
     <TitledPane animated="false" text="Parties">
       <content>
@@ -23,15 +23,9 @@
                               <FlowPane alignment="TOP_CENTER" columnHalignment="CENTER" hgap="10.0" layoutX="-2.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" rowValignment="TOP">
                                  <children>
                                     <Button fx:id="approveBtn" mnemonicParsing="false" text="Approve">
-                                       <FlowPane.margin>
-                                          <Insets />
-                                       </FlowPane.margin>
                                     </Button>
                                     <Button fx:id="rejectBtn" mnemonicParsing="false" text="Reject" />
                                  </children>
-                                 <padding>
-                                    <Insets top="10.0" />
-                                 </padding>
                               </FlowPane>
                            </children>
                         </Pane>
@@ -44,7 +38,7 @@
       <content>
         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                <children>
-                  <VBox fillWidth="false" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="349.0" prefWidth="598.0">
+                  <VBox fillWidth="false" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="509.0" prefWidth="398.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <children>
                         <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Election" />
                         <ComboBox fx:id="electionForVoteComboBox" maxWidth="1.7976931348623157E308" prefHeight="25.0" prefWidth="560.0" />
@@ -56,14 +50,8 @@
                                  <children>
                                     <TextField fx:id="voteField" />
                                     <Button fx:id="voteBtn" mnemonicParsing="false" text="Vote">
-                                       <FlowPane.margin>
-                                          <Insets />
-                                       </FlowPane.margin>
                                     </Button>
                                  </children>
-                                 <padding>
-                                    <Insets top="10.0" />
-                                 </padding>
                               </FlowPane>
                            </children>
                         </Pane>
