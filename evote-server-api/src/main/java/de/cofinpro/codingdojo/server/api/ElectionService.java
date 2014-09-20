@@ -29,7 +29,7 @@ public interface ElectionService {
      * @return get all allowed parties for an election
      */
     @GET
-    @Path("/{electionId}/parties")
+    @Path("/{electionId}/parties/approved")
     List<Party> getParties(@PathParam("electionId")Long electionId);
 
     /**
