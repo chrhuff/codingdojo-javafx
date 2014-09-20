@@ -4,7 +4,8 @@ import de.cofinpro.codingdojo.server.api.Vote;
 import de.cofinpro.codingdojo.server.api.Voter;
 import de.cofinpro.codingdojo.server.api.VoterService;
 
-import javax.ejb.Stateless;
+import javax.ejb.*;
+import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
@@ -14,11 +15,12 @@ import java.util.List;
 /**
  * Created by tahmed on 19.09.2014.
  */
-@Stateless
+@Singleton
+@Lock(LockType.WRITE)
 public class VoterServiceImpl implements VoterService {
 
-    @PersistenceContext(unitName = "codingdojo")
-    private EntityManager entityManager;
+    @EJB
+    private VoterDao voterDao;
 
     /**
      * {@inheritDoc}
@@ -26,8 +28,7 @@ public class VoterServiceImpl implements VoterService {
 
     @Override
     public Long register(Voter voter) {
-        entityManager.persist(voter);
-        return voter.getId();
+        return voterDao.create(voter);
     }
 
     /**
@@ -36,8 +37,7 @@ public class VoterServiceImpl implements VoterService {
 
     @Override
     public Voter getVoter(@PathParam("voterId")Long voterId) {
-        Voter voter = entityManager.find(Voter.class, voterId);
-        return voter;
+        return voterDao.getVoter(voterId);
     }
 
     /**
@@ -45,8 +45,7 @@ public class VoterServiceImpl implements VoterService {
      */
     @Override
     public List<Voter> getVoters() {
-        Query query = entityManager.createQuery("SELECT v from Voter as v");
-        return query.getResultList();
+        return voterDao.getVoters();
     }
 
     /**
@@ -54,7 +53,6 @@ public class VoterServiceImpl implements VoterService {
      */
     @Override
     public Long vote(Vote vote) {
-        entityManager.persist(vote);
-        return vote.getId();
+        return voterDao.createVote(vote);
     }
 }
