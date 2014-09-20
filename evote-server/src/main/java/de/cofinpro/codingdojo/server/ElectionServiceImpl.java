@@ -64,7 +64,6 @@ public class ElectionServiceImpl implements ElectionService {
                 .setParameter("election", election).getSingleResult().intValue();
     }
 
-    @Override
     public Long vote(Party party, Election election, int count) {
         long i = 0;
         for (; i < count; i++) {
@@ -81,7 +80,7 @@ public class ElectionServiceImpl implements ElectionService {
     }
 
     @Override
-    public Long vote(long partyId, long electionId, int count) {
+    public Long vote(Long partyId, Long electionId, int count) {
         Party party = entityManager.find(Party.class, partyId);
         Election election = entityManager.find(Election.class, electionId);
         return vote(party, election, count);
