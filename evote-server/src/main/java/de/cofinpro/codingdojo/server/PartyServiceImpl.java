@@ -37,5 +37,4 @@ public class PartyServiceImpl implements PartyService{
 		entityManager.persist(approval);
 		
 	}
-
 }
