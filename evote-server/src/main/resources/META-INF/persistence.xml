@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<!-- 
+<!--
 /*
 * Copyright (C) 2012 Daniel Medina <http://danielme.com>
 *
@@ -16,13 +16,13 @@
 *
 * You should have received a copy of the GNU General Public License version 3
 * along with this program. If not, see <http://www.gnu.org/licenses/gpl-3.0.html/>
-*/ 
+*/
 -->
 <persistence version="2.0" xmlns="http://java.sun.com/xml/ns/persistence"
              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
              xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd">
-
     <persistence-unit name="codingdojo">
+        <!--jta-data-source>java:jboss/datasources/ExampleDS</jta-data-source-->
         <class>de.cofinpro.codingdojo.server.api.Election</class>
         <class>de.cofinpro.codingdojo.server.api.Party</class>
         <class>de.cofinpro.codingdojo.server.api.Vote</class>
@@ -32,7 +32,11 @@
         <properties>
             <property name="openjpa.jdbc.SynchronizeMappings" value="buildSchema(ForeignKeys=true)"/>
         </properties>
-
+        <!--properties>
+            <property name="hibernate.dialect"
+                      value="org.hibernate.dialect.HSQLDialect"/>
+            <property name="hibernate.hbm2ddl.auto" value="create-drop"/>
+        </properties-->
     </persistence-unit>
 
 </persistence>
