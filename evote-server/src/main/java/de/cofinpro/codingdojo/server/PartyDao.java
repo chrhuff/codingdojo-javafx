@@ -22,7 +22,7 @@ public class PartyDao {
 	        return party.getId();
 	    }
 
-	    public Voter update(Party party) {
+	    public Party update(Party party) {
 	        return entityManager.merge(party);
 	    }
 
