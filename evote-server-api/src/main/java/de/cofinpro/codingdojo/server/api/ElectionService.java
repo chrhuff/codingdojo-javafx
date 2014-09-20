@@ -9,8 +9,8 @@ import java.util.List;
  * Created by tahmed on 19.09.2014.
  */
 @Path("/election")
-@Consumes(MediaType.APPLICATION_JSON)
-@Produces(MediaType.APPLICATION_JSON)
+@Consumes(MediaType.APPLICATION_XML)
+@Produces(MediaType.APPLICATION_XML)
 public interface ElectionService {
 
     /**
@@ -40,6 +40,7 @@ public interface ElectionService {
      */
     @GET
     @Path("/{electionId}/votes")
+    @Produces(MediaType.TEXT_PLAIN)
     Integer getVotes(@PathParam("electionId")Long electionId);
 
     /**
@@ -50,6 +51,7 @@ public interface ElectionService {
      */
     @GET
     @Path("{electionId}/{partyId}/votes")
+    @Produces(MediaType.TEXT_PLAIN)
     Integer getVotes(@PathParam("electionId")Long electionId, @PathParam("partyId")Long partyId);
 
 }

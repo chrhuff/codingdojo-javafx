@@ -9,8 +9,8 @@ import java.util.List;
  * Created by tahmed on 19.09.2014.
  */
 @Path("/party")
-@Consumes(MediaType.APPLICATION_JSON)
-@Produces(MediaType.APPLICATION_JSON)
+@Consumes(MediaType.APPLICATION_XML)
+@Produces(MediaType.APPLICATION_XML)
 public interface PartyService {
 
     /**
@@ -19,6 +19,7 @@ public interface PartyService {
      * @param party
      */
     @PUT
+    @Produces(MediaType.TEXT_PLAIN)
     Long register(Party party);
 
     /**
@@ -41,6 +42,7 @@ public interface PartyService {
      */
     @PUT
     @Path("/apply")
+    @Produces(MediaType.TEXT_PLAIN)
     Long applyForElection(Party party, Election election);
 
 }

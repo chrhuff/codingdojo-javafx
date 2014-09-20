@@ -59,12 +59,13 @@ public class PartyController implements Initializable {
     @FXML
     public void onRegisterPartyClick() throws IOException {
     	if(!partyName.getText().trim().equals("")){
-	    	registerPartytarget.setText("Party" + partyName.getText() + " registered.");
-	    	
-	    	Party party = new Party(partyName.getText().trim());
-	    	
-	    	partyId = partyService.register(party);
-	    	
+
+            Party party = new Party(partyName.getText().trim());
+
+            partyId = partyService.register(party);
+
+            registerPartytarget.setText("Party '" + partyName.getText() + "' registered, party ID is " + partyId);
+
 	    	registerPartyGrid.setVisible(false);
 	    	selectElectionGrid.setVisible(true);
 	    	
