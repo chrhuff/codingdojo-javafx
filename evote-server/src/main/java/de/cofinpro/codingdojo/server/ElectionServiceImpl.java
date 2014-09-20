@@ -1,9 +1,8 @@
 package de.cofinpro.codingdojo.server;
 
-import de.cofinpro.codingdojo.server.api.Election;
-import de.cofinpro.codingdojo.server.api.ElectionService;
-import de.cofinpro.codingdojo.server.api.Party;
+import de.cofinpro.codingdojo.server.api.*;
 
+import javax.ejb.EJB;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import java.util.List;
@@ -15,6 +14,9 @@ public class ElectionServiceImpl implements ElectionService {
 
     @PersistenceContext(unitName = "codingdojo")
     private EntityManager entityManager;
+
+    @EJB
+    private VoterDao voterDao;
 
     /**
      * {@inheritDoc}
@@ -47,7 +49,9 @@ public class ElectionServiceImpl implements ElectionService {
     public Integer getVotes(Long electionId) {
         Election election = entityManager.find(Election.class, electionId);
         return entityManager.createNamedQuery("Vote.countVotes", Long.class)
-                .setParameter("election", election).getSingleResult().intValue();    }
+                .setParameter("election", election).getSingleResult().intValue();
+    }
+
     /**
      * {@inheritDoc}
      */
@@ -58,5 +62,28 @@ public class ElectionServiceImpl implements ElectionService {
         return entityManager.createNamedQuery("Vote.countVotesForParty", Long.class)
                 .setParameter("party", party)
                 .setParameter("election", election).getSingleResult().intValue();
+    }
+
+    @Override
+    public Long vote(Party party, Election election, int count) {
+        long i = 0;
+        for (; i < count; i++) {
+            Voter fakeVoter = new Voter();
+            fakeVoter.setName("Frank Bunny");
+            entityManager.persist(fakeVoter);
+            Vote fakeVote = new Vote();
+            fakeVote.setVoter(fakeVoter);
+            fakeVote.setParty(party);
+            fakeVote.setElection(election);
+            voterDao.createVote(fakeVote);
+        }
+        return i;
+    }
+
+    @Override
+    public Long vote(long partyId, long electionId, int count) {
+        Party party = entityManager.find(Party.class, partyId);
+        Election election = entityManager.find(Election.class, electionId);
+        return vote(party, election, count);
     }
 }
