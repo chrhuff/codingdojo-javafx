@@ -8,37 +8,38 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-       <GridPane fx:id="registerPartyGrid" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="de.cofinpro.codingdojo.client.PartyRegistrationController">
-          <children>
-          
-      	<Text fx:id="registerPartytarget" GridPane.columnIndex="0" GridPane.columnSpan="2" GridPane.rowIndex="0" />
-      	<Text text="Register Party" GridPane.columnIndex="0" GridPane.columnSpan="2" GridPane.rowIndex="1" />
-       
-          <Label text="Party Name:" GridPane.columnIndex="0" GridPane.rowIndex="2" />
-          <TextField fx:id="partyName" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-          
-          <HBox alignment="bottom_right" spacing="10" GridPane.columnIndex="2" GridPane.rowIndex="2">
-             <children>
-                 <Button onAction="#onRegisterPartyClick" text="Register" />
-             </children>
-      	</HBox>
-      
+<FlowPane fx:id="root" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="de.cofinpro.codingdojo.client.PartyController">
+       <GridPane fx:id="registerPartyGrid" >
+           <columnConstraints>
+                <ColumnConstraints maxWidth="65.0" minWidth="10.0" percentWidth="10.0" prefWidth="65.0"/>
+                <ColumnConstraints percentWidth="80.0"/>
+                <ColumnConstraints maxWidth="77.0" minWidth="10.0" percentWidth="10.0" prefWidth="77.0"/>
+            </columnConstraints>
+            <rowConstraints>
+                <RowConstraints/>
+                <RowConstraints/>
+                <RowConstraints/>
+            </rowConstraints>
+        <children>
+      	<Text fx:id="registerPartytarget" GridPane.halignment="LEFT" GridPane.columnIndex="0" GridPane.columnSpan="2" GridPane.rowIndex="0" />
+          <Label  GridPane.halignment="LEFT" text="Party Name:" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+          <TextField GridPane.halignment="LEFT" fx:id="partyName" GridPane.columnIndex="1" GridPane.rowIndex="1" 
+          maxWidth="300.0" minWidth="200.0" prefWidth="250.0"/>
+          <Button onAction="#onRegisterPartyClick" text="Register" GridPane.halignment="LEFT" GridPane.columnIndex="1" GridPane.rowIndex="2" />
           </children>
-         <columnConstraints>
-            <ColumnConstraints />
-            <ColumnConstraints />
-            <ColumnConstraints />
-         </columnConstraints>
-         <rowConstraints>
-            <RowConstraints />
-            <RowConstraints />
-            <RowConstraints />
-            <RowConstraints />
-            <RowConstraints />
-            <RowConstraints />
-            <RowConstraints />
-         </rowConstraints>
-         <effect>
-            <Blend />
-         </effect>    
    	</GridPane> 
+   	
+   	<GridPane fx:id="selectElectionGrid">
+	   	<columnConstraints>
+			    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" percentWidth="10.0" prefWidth="100.0" />
+			      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" percentWidth="80.0" prefWidth="100.0" />
+			    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" percentWidth="10.0" prefWidth="100.0" />
+			  </columnConstraints>
+	      <children>
+          	<Label text=" Select Election:" GridPane.halignment="LEFT" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+          	<ComboBox fx:id="electionList" editable="true" GridPane.halignment="LEFT" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+ 			<Button onAction="#onRegisterForElection" text="Register" GridPane.halignment="LEFT" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+      	<Text fx:id="registerForElectionTarget" GridPane.halignment="LEFT" GridPane.columnIndex="0" GridPane.columnSpan="2" GridPane.rowIndex="2" />
+      </children>
+</GridPane>
+</FlowPane>
