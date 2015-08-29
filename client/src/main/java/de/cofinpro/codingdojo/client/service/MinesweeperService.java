@@ -16,6 +16,7 @@ public interface MinesweeperService {
     ActionResult submitAction(@PathParam("sessid") Integer sessionId, Action action);
 
     @POST
+    @Path("/")
     Integer initGame(InitGameRequest request);
 
     @GET

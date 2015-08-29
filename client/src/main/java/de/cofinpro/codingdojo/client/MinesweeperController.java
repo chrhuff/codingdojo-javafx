@@ -10,15 +10,9 @@ import de.cofinpro.codingdojo.client.service.MinesweeperService;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
-import javafx.geometry.Pos;
-import javafx.scene.Scene;
 import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
 import javafx.scene.input.MouseButton;
 import javafx.scene.layout.*;
-import javafx.scene.text.Text;
-import javafx.stage.Modality;
-import javafx.stage.Stage;
 
 import javax.inject.Inject;
 import java.net.URL;
@@ -63,14 +57,22 @@ public class MinesweeperController implements Initializable {
             minefieldGrid.getRowConstraints().add(rowConst);
         }
 
+        startNewGame(width, height, 0.1f);
+    }
+
+    private void startNewGame(int width, int height, float mineRatio) {
+        InitGameRequest request = getInitGameRequest(width, height, mineRatio);
+        sessionId = minesweeperService.initGame(request);
+        ActionResult currentGameState = minesweeperService.getCurrentGameState(sessionId);
+        paintVisibleCells(currentGameState);
+    }
+
+    private InitGameRequest getInitGameRequest(int width, int height, float mineRatio) {
         InitGameRequest request = new InitGameRequest();
         request.setHeight(height);
         request.setWidth(width);
-        request.setMineRatio(0.1f);
-        sessionId = minesweeperService.initGame(request);
-
-        ActionResult currentGameState = minesweeperService.getCurrentGameState(sessionId);
-        paintVisibleCells(currentGameState);
+        request.setMineRatio(mineRatio);
+        return request;
     }
 
     private void paintVisibleCells(ActionResult currentGameState) {
@@ -105,12 +107,14 @@ public class MinesweeperController implements Initializable {
         paintVisibleCells(result);
         if (result.getStatus() == ClientStatus.GAMEOVER) {
             Alert alert = new Alert(Alert.AlertType.INFORMATION, "Game Over!");
-            alert.show();
-            minefieldGrid.getChildren().stream().forEach( n -> n.setDisable(true));
+            alert.showAndWait();
+            minefieldGrid.getChildren().stream().forEach(n -> n.setDisable(true));
+            startNewGame(10, 10, 0.1f);
         } else if (result.getStatus() == ClientStatus.VICTORY) {
             Alert alert = new Alert(Alert.AlertType.INFORMATION, "You win!");
-            alert.show();
-            minefieldGrid.getChildren().stream().forEach( n -> n.setDisable(true));
+            alert.showAndWait();
+            minefieldGrid.getChildren().stream().forEach(n -> n.setDisable(true));
+            startNewGame(10, 10, 0.1f);
         }
     }
 }
