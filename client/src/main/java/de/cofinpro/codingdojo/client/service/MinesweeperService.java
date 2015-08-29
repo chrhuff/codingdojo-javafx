@@ -8,6 +8,7 @@ import javax.ws.rs.*;
 /**
  * Created by chuff on 29.08.2015.
  */
+@Consumes("application/json")
 public interface MinesweeperService {
 
     @PUT

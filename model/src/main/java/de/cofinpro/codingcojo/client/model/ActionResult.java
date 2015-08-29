@@ -12,7 +12,14 @@ public class ActionResult {
 
     private final List<VisibleCell> visibleCells = new ArrayList<>();
 
-    private final ClientStatus status;
+    private ClientStatus status;
+
+    public ActionResult() {
+    }
+
+    public void setStatus(ClientStatus status) {
+        this.status = status;
+    }
 
     public ActionResult(List<VisibleCell> visibleCells, ClientStatus status) {
         this.visibleCells.addAll(visibleCells);

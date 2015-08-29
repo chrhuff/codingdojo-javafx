@@ -22,6 +22,8 @@ public class FxMain {
         try (InputStream fxml = FxMain.class.getResourceAsStream("/main.fxml")) {
             stage.setScene(new Scene(fxmlLoader.load(fxml)));
             stage.show();
+            stage.setTitle("Minesweeper RESTfx");
+            stage.setResizable(false);
         }
     }
 }
