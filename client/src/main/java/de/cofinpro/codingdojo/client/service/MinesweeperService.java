@@ -12,15 +12,14 @@ import javax.ws.rs.*;
 public interface MinesweeperService {
 
     @PUT
-    @Path("/submitAction/{sessid}")
+    @Path("/{sessid}")
     ActionResult submitAction(@PathParam("sessid") Integer sessionId, Action action);
 
     @POST
-    @Path("/initGame")
     Integer initGame(InitGameRequest request);
 
     @GET
-    @Path("/currentGameState/{sessid}")
+    @Path("/{sessid}")
     ActionResult getCurrentGameState(@PathParam("sessid") Integer sessionId);
 
     @GET
