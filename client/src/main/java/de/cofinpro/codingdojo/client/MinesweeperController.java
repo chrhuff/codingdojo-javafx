@@ -24,6 +24,10 @@ import java.util.ResourceBundle;
  */
 public class MinesweeperController implements Initializable {
 
+    public static final float MINE_RATIO = 0.1f;
+    private static final int WIDTH = 5;
+    private static final int HEIGHT = 5;
+
     @FXML
     private GridPane minefieldGrid;
 
@@ -44,20 +48,18 @@ public class MinesweeperController implements Initializable {
         minefieldGrid.setPadding(new Insets(0));
         minefieldGrid.setVisible(true);
         minefieldGrid.setGridLinesVisible(false);
-        final int width = 10;
-        final int height = 10;
-        for (int i = 0; i < width; i++) {
+        for (int i = 0; i < WIDTH; i++) {
             ColumnConstraints colConst = new ColumnConstraints();
-            colConst.setPercentWidth(100.0 / width);
+            colConst.setPercentWidth(100.0 / WIDTH);
             minefieldGrid.getColumnConstraints().add(colConst);
         }
-        for (int i = 0; i < height; i++) {
+        for (int i = 0; i < HEIGHT; i++) {
             RowConstraints rowConst = new RowConstraints();
-            rowConst.setPercentHeight(100.0 / height);
+            rowConst.setPercentHeight(100.0 / HEIGHT);
             minefieldGrid.getRowConstraints().add(rowConst);
         }
 
-        startNewGame(width, height, 0.1f);
+        startNewGame(WIDTH, HEIGHT, 0.1f);
     }
 
     private void startNewGame(int width, int height, float mineRatio) {
@@ -109,12 +111,12 @@ public class MinesweeperController implements Initializable {
             Alert alert = new Alert(Alert.AlertType.INFORMATION, "Game Over!");
             alert.showAndWait();
             minefieldGrid.getChildren().stream().forEach(n -> n.setDisable(true));
-            startNewGame(10, 10, 0.1f);
+            startNewGame(WIDTH, HEIGHT, MINE_RATIO);
         } else if (result.getStatus() == ClientStatus.VICTORY) {
             Alert alert = new Alert(Alert.AlertType.INFORMATION, "You win!");
             alert.showAndWait();
             minefieldGrid.getChildren().stream().forEach(n -> n.setDisable(true));
-            startNewGame(10, 10, 0.1f);
+            startNewGame(WIDTH, HEIGHT, MINE_RATIO);
         }
     }
 }
