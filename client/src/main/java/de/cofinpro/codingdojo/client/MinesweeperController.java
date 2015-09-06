@@ -13,6 +13,7 @@ import javafx.geometry.Insets;
 import javafx.scene.control.Alert;
 import javafx.scene.input.MouseButton;
 import javafx.scene.layout.*;
+import javafx.stage.Window;
 
 import javax.inject.Inject;
 import java.net.URL;
@@ -25,14 +26,11 @@ import java.util.ResourceBundle;
 public class MinesweeperController implements Initializable {
 
     public static final float MINE_RATIO = 0.1f;
-    private static final int WIDTH = 5;
-    private static final int HEIGHT = 5;
+    private static final int WIDTH = 16;
+    private static final int HEIGHT = 10;
 
     @FXML
     private GridPane minefieldGrid;
-
-    @FXML
-    private Pane root;
 
     @Inject
     private MinesweeperService minesweeperService;
@@ -44,8 +42,9 @@ public class MinesweeperController implements Initializable {
 
         HBox.setHgrow(minefieldGrid, Priority.ALWAYS);
         VBox.setVgrow(minefieldGrid, Priority.ALWAYS);
-        minefieldGrid.setMaxSize(Double.MAX_VALUE, Double.MAX_VALUE);
-        minefieldGrid.setPadding(new Insets(0));
+        minefieldGrid.setPrefSize(800,500);
+        minefieldGrid.setMaxSize(Region.USE_COMPUTED_SIZE, Region.USE_COMPUTED_SIZE);
+        minefieldGrid.setPadding(new Insets(5));
         minefieldGrid.setVisible(true);
         minefieldGrid.setGridLinesVisible(false);
         for (int i = 0; i < WIDTH; i++) {

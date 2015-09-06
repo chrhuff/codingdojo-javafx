@@ -20,10 +20,11 @@ public class FxMain {
 
     public void start(Stage stage, Parameters parameters) throws IOException {
         try (InputStream fxml = FxMain.class.getResourceAsStream("/main.fxml")) {
-            stage.setScene(new Scene(fxmlLoader.load(fxml)));
+            Scene scene = new Scene(fxmlLoader.load(fxml));
+            stage.setScene(scene);
             stage.show();
-            stage.setTitle("Minesweeper RESTfx");
-            stage.setResizable(false);
+            stage.setTitle("Minesweeper RESTfx HD");
+            stage.setResizable(true);
         }
     }
 }

@@ -8,7 +8,7 @@ import org.jboss.resteasy.client.jaxrs.ResteasyWebTarget;
 import javax.enterprise.inject.Produces;
 
 public class ProxyProducer {
-    public static final String URI = "http://" + System.getProperty("minesweeper.server.ip", "192.168.59.103") + ":8080/mining-service/minesweeper";
+    public static final String URI = "http://" + System.getProperty("minesweeper.server.ip", "localhost") + ":8080/mining-service/minesweeper";
 
     @Produces
     public MinesweeperService produceMinesweeperService() {

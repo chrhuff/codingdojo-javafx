@@ -1,8 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.layout.Pane?>
-<Pane xmlns:fx="http://javafx.com/fxml" minHeight="600" minWidth="600" maxHeight="600" maxWidth="600">
-    <children>
-        <fx:include fx:id="barTabPage" source="/minefield.fxml"/>
-    </children>
-</Pane>
+<?import javafx.scene.layout.*?>
+
+<GridPane  xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:id="minefieldGrid" fx:controller="de.cofinpro.codingdojo.client.MinesweeperController" alignment="CENTER" minHeight="500" minWidth="800" />
