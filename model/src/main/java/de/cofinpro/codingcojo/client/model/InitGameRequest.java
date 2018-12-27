@@ -1,4 +1,4 @@
-package de.cofinpro.codingdojo.client.service;
+package de.cofinpro.codingcojo.client.model;
 
 /**
  * Created by mosdoba on 29.08.2015.

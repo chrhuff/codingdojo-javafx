@@ -5,15 +5,14 @@ import de.cofinpro.codingcojo.client.model.ActionResult;
 import de.cofinpro.codingcojo.client.model.ClientStatus;
 import de.cofinpro.codingcojo.client.model.VisibleCell;
 import de.cofinpro.codingdojo.client.javafx.CellButton;
-import de.cofinpro.codingdojo.client.service.InitGameRequest;
-import de.cofinpro.codingdojo.client.service.MinesweeperService;
+import de.cofinpro.codingcojo.client.model.InitGameRequest;
+import de.cofinpro.codingdojo.service.MinesweeperService;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
 import javafx.scene.control.Alert;
 import javafx.scene.input.MouseButton;
 import javafx.scene.layout.*;
-import javafx.stage.Window;
 
 import javax.inject.Inject;
 import java.net.URL;
@@ -25,7 +24,7 @@ import java.util.ResourceBundle;
  */
 public class MinesweeperController implements Initializable {
 
-    public static final float MINE_RATIO = 0.1f;
+    private static final float MINE_RATIO = 0.1f;
     private static final int WIDTH = 16;
     private static final int HEIGHT = 10;
 
@@ -109,12 +108,12 @@ public class MinesweeperController implements Initializable {
         if (result.getStatus() == ClientStatus.GAMEOVER) {
             Alert alert = new Alert(Alert.AlertType.INFORMATION, "Game Over!");
             alert.showAndWait();
-            minefieldGrid.getChildren().stream().forEach(n -> n.setDisable(true));
+            minefieldGrid.getChildren().forEach(n -> n.setDisable(true));
             startNewGame(WIDTH, HEIGHT, MINE_RATIO);
         } else if (result.getStatus() == ClientStatus.VICTORY) {
             Alert alert = new Alert(Alert.AlertType.INFORMATION, "You win!");
             alert.showAndWait();
-            minefieldGrid.getChildren().stream().forEach(n -> n.setDisable(true));
+            minefieldGrid.getChildren().forEach(n -> n.setDisable(true));
             startNewGame(WIDTH, HEIGHT, MINE_RATIO);
         }
     }
